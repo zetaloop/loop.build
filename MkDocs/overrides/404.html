@@ -1,0 +1,91 @@
+{% extends "main.html" %}
+
+<!-- Content -->
+{% block content %}
+<meta name="comments" content="true" />
+<style>
+  @keyframes fly {
+    to {
+      opacity: 0;
+      height: 1%;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .fly {
+    animation: fly 1s forwards;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .fade {
+    animation: fade 1s ease forwards;
+  }
+</style>
+<div id="wholepage">
+  <h1 id="face" style="font-family: MapleMono">
+    :(</h1>
+  <h2>
+    你的网址遇到问题，需要结束访问。<br />我们只收集某些意外情绪，然后为你返回上一页。
+  </h2>
+  <h2 id="message"><span id="percentage">0</span>% 完成<span id="tip"></span></h2>
+  <br />
+  <div style="display: flex; align-items: top">
+    <img style="
+      margin-right: 20px;
+      max-width: min(20vw, 20vh);
+      max-height: min(20vw, 20vh);
+      opacity: 0.9;
+    "
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAMAAADDpiTIAAABaFBMVEUAAAD////+/v79/f38/Pz7+/v6+vr5+fn29vb19fXz8/Py8vLx8fHw8PDs7Ozr6+vq6urp6eno6Ojn5+fm5ubl5eXk5OTj4+Pg4ODe3t7c3Nzb29va2trZ2dnX19fV1dXU1NTS0tLR0dHQ0NDMzMzIyMjExMS/v7+5ubm0tLSxsbGsrKyqqqqoqKikpKSjo6OhoaGenp6bm5uZmZmTk5OHh4eFhYV/f399fX13d3dxcXFwcHBvb29ubm5tbW1ra2tqampoaGhmZmZiYmJgYGBfX19dXV1YWFhXV1dWVlZUVFRTU1NSUlJRUVFQUFBNTU1MTExLS0tKSkpFRUU/Pz87Ozs6Ojo3Nzc2NjY0NDQzMzMyMjIxMTEvLy8uLi4tLS0kJCQgICAfHx8eHh4WFhYVFRUUFBQSEhIREREPDw8ODg4NDQ0LCwsKCgoJCQkICAgHBwcGBgYFBQUEBAQDAwMCAgIBAQH///8CkrqaAAAAeHRSTlP//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wB8VxiMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAH7ElEQVR4nO3dy6tkRwHA4e55kExQQWIYRQwJqEkWvhVRUbKID1yoQUVUBF0IEkURxT9CTcjWjbiIIEKWbtTgi0DcGEjURR4LBQkEDSMOSjKTuW5Vpmuo8fQ9d+7v+5ZTdaqqu3/3dt/F6dluN5SdWPsArEsAcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA4gQQJ4A4AcQJIE4AcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQN12xlt3LvOx4XUv33nd128YXvi5xR/vh4b73bz4fofunjNTL+lcAIN93z64bPRr5gsnBhe+Z+lnZ7PZvGH0AL+xhw0P2wenXtLF3gJuHYzdNBh76endYyfuuNrTDLxmMPaqe/ew4WF709TsxQK4Zv7fgdFBr5kHMfLt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" />
+    <div>
+      <p>有关此问题的详细信息和可能的解决方法，请联系</p>
+      <p><a href="mailto:zetaloop@outlook.com">zetaloop@outlook.com</a></p>
+      <p>如果致信支持人员，请向它们提供以下信息：</p>
+      <p>终止代码：<code>404_NOT_FOUND</code></p>
+    </div>
+  </div>
+</div>
+<script>
+  const target = 100;
+  let current = 0;
+  const face = document.getElementById("face");
+  const percentage = document.getElementById("percentage");
+  const tip = document.getElementById("tip");
+  const message = document.getElementById("message");
+  const wholepage = document.getElementById("wholepage");
+  const interval = 10;
+  setTimeout(() => {
+    const timer = setInterval(() => {
+      current++;
+      percentage.innerText = current;
+      if (current >= target) {
+        clearInterval(timer);
+        face.innerText = ":)";
+        tip.innerText = " - 即将为你跳转";
+        message.classList.add("fly");
+        wholepage.classList.add("fade");
+        wholepage.addEventListener("animationend", () => {
+          // message.style.display = 'none';
+          // face.innerText = ":)";
+          if (document.referrer.includes(window.location.hostname)) {
+            window.history.back(); // Back to the previous page if its from our site
+          } else {
+            window.location.href = '/'; // Redirect to the home page if not
+          }
+        });
+      }
+    }, interval);
+  }, 100);
+</script>
+{% endblock %}

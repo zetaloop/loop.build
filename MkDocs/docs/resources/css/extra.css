@@ -1,0 +1,264 @@
+/* 自定义字体 */
+@font-face {
+  font-family: "仓耳渔阳体";
+  src: url("../font/站酷仓耳渔阳体-W02.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("../font/JetBrainsMono-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MapleMono";
+  src: url("../font/MapleMono-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MapleMonoCN";
+  src: url("../font/MapleMono-NF-CN-Light.woff2") format("woff2");
+}
+
+:root {
+  --md-text-font: "仓耳渔阳体";
+  --md-code-font: "JetBrainsMono", "MapleMonoCN";
+}
+
+
+/* 连字 */
+code,
+kbd,
+pre {
+  font-variant-ligatures: normal !important;
+}
+
+
+/* 自定义颜色 */
+:root {
+  /* --clr-teal-50: #e0f2f1;
+  --clr-teal-100: #b2dfdb;
+  --clr-teal-200: #80cbc4;
+  --clr-teal-300: #4db6ac;
+  --clr-teal-400: #26a69a;
+  --clr-teal-500: #009688;
+  --clr-teal-600: #00897b;
+  --clr-teal-700: #00796b;
+  --clr-teal-800: #00695c;
+  --clr-teal-900: #004d40;
+  --clr-teal-a100: #a7ffeb;
+  --clr-teal-a200: #64ffda;
+  --clr-teal-a400: #1de9b6;
+  --clr-teal-a700: #00bfa5;
+
+  --clr-green-50: #e8f5e9;
+  --clr-green-100: #c8e6c9;
+  --clr-green-200: #a5d6a7;
+  --clr-green-300: #81c784;
+  --clr-green-400: #66bb6a;
+  --clr-green-500: #4caf50;
+  --clr-green-600: #43a047;
+  --clr-green-700: #388e3c;
+  --clr-green-800: #2e7d32;
+  --clr-green-900: #1b5e20;
+  --clr-green-a100: #b9f6ca;
+  --clr-green-a200: #69f0ae;
+  --clr-green-a400: #00e676;
+  --clr-green-a700: #00c853; */
+
+  /* Fox is simply Teal+Green using https://coolors.co */
+  --clr-fox-50: #e4f4ed;
+  --clr-fox-50--rgb: 228, 244, 237;
+  --clr-fox-100: #bde3d2;
+  --clr-fox-100--rgb: 189, 227, 210;
+  --clr-fox-200: #93d1b6;
+  --clr-fox-200--rgb: 147, 209, 182;
+  --clr-fox-300: #67bf98;
+  --clr-fox-300--rgb: 103, 191, 152;
+  --clr-fox-400: #46b182;
+  --clr-fox-400--rgb: 70, 177, 130;
+  --clr-fox-500: #26a36c;
+  --clr-fox-500--rgb: 38, 163, 108;
+  --clr-fox-600: #229561;
+  --clr-fox-600--rgb: 34, 149, 97;
+  --clr-fox-700: #1c8454;
+  --clr-fox-700--rgb: 28, 132, 84;
+  --clr-fox-800: #177347;
+  --clr-fox-800--rgb: 23, 115, 71;
+  --clr-fox-900: #0e5630;
+  --clr-fox-900--rgb: 14, 86, 48;
+  --clr-fox-a100: #b0fbdb;
+  --clr-fox-a100--rgb: 176, 251, 219;
+  --clr-fox-a200: #67f8c4;
+  --clr-fox-a200--rgb: 103, 248, 196;
+  --clr-fox-a400: #0fe896;
+  --clr-fox-a400--rgb: 15, 232, 150;
+  --clr-fox-a700: #00c47c;
+  --clr-fox-a700--rgb: 0, 196, 124;
+}
+
+[data-md-color-scheme=default] {
+  --md-primary-fg-color: var(--clr-fox-500);
+  --md-primary-fg-color--light: var(--clr-fox-400);
+  --md-primary-fg-color--dark: var(--clr-fox-700);
+  --md-accent-fg-color: var(--clr-fox-a700);
+  --md-accent-fg-color--transparent: rgba(var(--clr-fox-a700--rgb), 0.1);
+  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+}
+
+[data-md-color-scheme=slate] {
+  --md-primary-fg-color: var(--clr-fox-800);
+  --md-primary-fg-color--light: var(--clr-fox-500);
+  --md-primary-fg-color--dark: var(--clr-fox-900);
+  --md-accent-fg-color: var(--clr-fox-a400);
+  --md-accent-fg-color--transparent: rgba(var(--clr-fox-a400--rgb), 0.1);
+  --md-typeset-a-color: var(--md-primary-fg-color--light);
+
+  /* MODIFIED _scheme.scss： adjusted saturation */
+  --md-sat-ratio: 5%;
+  /* Default color shades */
+  --md-default-fg-color: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.82);
+  --md-default-fg-color--light: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.56);
+  --md-default-fg-color--lighter: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.32);
+  --md-default-fg-color--lightest: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.12);
+  --md-default-bg-color: hsla(var(--md-hue), var(--md-sat-ratio), 14%, 1);
+  --md-default-bg-color--light: hsla(var(--md-hue), var(--md-sat-ratio), 14%, 0.54);
+  --md-default-bg-color--lighter: hsla(var(--md-hue), var(--md-sat-ratio), 14%, 0.26);
+  --md-default-bg-color--lightest: hsla(var(--md-hue), var(--md-sat-ratio), 14%, 0.07);
+  /* Code color shades */
+  --md-code-fg-color: hsla(var(--md-hue), var(--md-sat-ratio), 86%, 0.82);
+  --md-code-bg-color: hsla(var(--md-hue), var(--md-sat-ratio), 18%, 1);
+  /* Typeset `kbd` color shades */
+  --md-typeset-kbd-color: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.12);
+  --md-typeset-kbd-accent-color: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.2);
+  --md-typeset-kbd-border-color: hsla(var(--md-hue), var(--md-sat-ratio), 14%, 1);
+  /* Typeset `table` color shades */
+  --md-typeset-table-color: hsla(var(--md-hue), var(--md-sat-ratio), 95%, 0.12);
+  --md-typeset-table-color--light: hsla(var(--md-hue), var(--md-sat-ratio), 95%, 0.035);
+  /* Footer color shades */
+  --md-footer-bg-color: hsla(var(--md-hue), var(--md-sat-ratio), 10%, 0.87);
+  --md-footer-bg-color--dark: hsla(var(--md-hue), var(--md-sat-ratio), 8%, 1);
+}
+
+
+/* 滚动条一会儿出现一会儿消失会导致页面左右横跳，不如直接隐藏 */
+:root {
+  /* overflow-y: scroll; */
+  scrollbar-width: none;
+}
+
+
+/* 修复顶栏阴影bug */
+.md-header--shadow {
+  box-shadow: none;
+}
+
+.md-tabs {
+  /* box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003; */
+  box-shadow: 0 .2rem .2rem var(--header-shadow-color);
+  position: sticky;
+  top: 0;
+}
+
+
+/* 顶栏新版亚克力样式 */
+[data-md-color-scheme=default] {
+  --header-color: #000;
+  --header-border-color: rgba(0, 0, 0, 0.3);
+  --header-shadow-color: rgba(200, 200, 200, 0.3);
+}
+
+[data-md-color-scheme=slate] {
+  --header-color: #fff;
+  --header-border-color: rgba(255, 255, 255, 0.3);
+  --header-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 76.25em)
+/* （电脑端） */
+  {
+  .md-header {
+    color: var(--header-color);
+    background-color: unset;
+    border-top: 1px solid var(--header-border-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .md-tabs {
+    color: var(--header-color);
+    background-color: unset;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--header-border-color) !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 76.234375em)
+/* （移动端） */
+  {
+  .md-header {
+    color: var(--header-color);
+    background-color: unset;
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--header-border-color);
+    border-bottom: 1px solid var(--header-border-color);
+    border-radius: 10px;
+  }
+
+  .md-nav__title[for=__drawer] {
+    background-color: unset !important;
+  }
+}
+
+
+
+/* 顺滑亮暗切换动画 */
+* {
+  transition-property: background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s;
+
+}
+
+[data-md-color-scheme=default] .md-logo {
+  /* fill: var(--md-primary-fg-color); */
+  filter: invert(100%);
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link {
+    background: none;
+    box-shadow: none;
+  }
+}
+
+@keyframes fix-theme-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fix-theme-fade-in {
+  opacity: 0;
+  animation: fix-theme-fade-in .5s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+@keyframes fix-tabs-fade-in {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: 0 .2rem .2rem var(--header-shadow-color);
+  }
+}
+
+.fix-tabs-fade-in {
+  box-shadow: none;
+  animation: fix-tabs-fade-in 1s cubic-bezier(.4, 0, .2, 1) forwards;
+}
