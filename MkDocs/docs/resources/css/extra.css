@@ -218,7 +218,6 @@ pre {
   transition-property: background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
-
 }
 
 [data-md-color-scheme=default] .md-logo {
@@ -231,6 +230,10 @@ pre {
     background: none;
     box-shadow: none;
   }
+}
+
+.admonition {
+  background-color: unset !important;
 }
 
 @keyframes fix-theme-fade-in {
