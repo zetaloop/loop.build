@@ -13,7 +13,7 @@ document$.subscribe(function () {
                 var elements = Array.from(
                     eval(
                         'document.querySelectorAll(".highlighttable, code, .md-typeset__table, .mermaid")'
-                    )
+                    ) // If you dont use eval, mermaid will not be detected
                 );
                 var filteredElements = elements.filter(function (el) {
                     // Check if the element is not a child of another element in the list
