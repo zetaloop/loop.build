@@ -282,9 +282,10 @@ pre {
 /* 实现动态显示储存库 */
 .md-header__source {
   display: none;
-  margin-left: 0;
+  margin-left: 0 !important;
   overflow: hidden;
-  transition: width 0.5s ease, margin-left 0.5s ease;
+  width: 0;
+  transition: width 0.5s ease, margin 0.5s ease;
 }
 
 @media screen and (min-width: 60em) {
@@ -293,8 +294,15 @@ pre {
     width: 11.7rem;
   }
 
-  [dir=ltr] .md-header__source {
-    margin-left: 1rem;
+  [dir=ltr] .md-header__source.show {
+    margin-left: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .md-header__source.show {
+    display: block;
+    width: 11.7rem;
   }
 }
 
