@@ -1,78 +1,30 @@
-# 当我想开始编写项目列表的时候，如何制作小卡片 🡒 [文档](https://squidfunk.github.io/mkdocs-material/reference/grids)
-
+# 项目
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+-   **PowerToys**
+
+    微软出品的效率小工具合集
+
+    [:octicons-arrow-right-24: 文档](PowerToys/index.md)
 
     ---
 
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
+    安装原版之后再安装汉化包
 
-    [:octicons-arrow-right-24: Getting started](#)
+    [:octicons-download-24: 原版 :fontawesome-brands-github:](https://github.com/Microsoft/PowerToys/releases "GitHub Releases")
+    <span style="margin-right: 20px;"></span>
+    [:octicons-download-24: 汉化包 :fontawesome-brands-github:](https://github.com/Zetaloop/PowerToys-CN/releases "GitHub Releases") | [:fontawesome-solid-cloud:](https://zeta.lanzouq.com/b0ny180uh "蓝奏云 密码zeta")
 
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
+-   **ExplorerPatcher** [`已转移`]("汉化版不再更新，现在在维护原版的中文翻译")
 
-    ---
+    还你一个高效的旧版 Windows 界面
 
-    Focus on your content and generate a responsive and searchable static site
-
-    [:octicons-arrow-right-24: Reference](#)
-
--   :material-format-font:{ .lg .middle } __Made to measure__
+    [:octicons-arrow-right-24: 文档](ExplorerPatcher/index.md)
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    原版已支持中文
 
-    [:octicons-arrow-right-24: Customization](#)
-
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
-
-    ---
-
-    Material for MkDocs is licensed under MIT and available on [GitHub]
-
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-download-24: 原版 :fontawesome-brands-github:](https://github.com/valinet/ExplorerPatcher/releases "GitHub Releases")
 
 </div>
-
-
-```markdown
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
-
-    ---
-
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
-
-    [:octicons-arrow-right-24: Getting started](#)
-
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
-
-    ---
-
-    Focus on your content and generate a responsive and searchable static site
-
-    [:octicons-arrow-right-24: Reference](#)
-
--   :material-format-font:{ .lg .middle } __Made to measure__
-
-    ---
-
-    Change the colors, fonts, language, icons, logo and more with a few lines
-
-    [:octicons-arrow-right-24: Customization](#)
-
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
-
-    ---
-
-    Material for MkDocs is licensed under MIT and available on [GitHub]
-
-    [:octicons-arrow-right-24: License](#)
-
-</div>
-```
