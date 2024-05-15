@@ -1,7 +1,7 @@
 site_name: 构建平台
 site_url: https://loop.build
-# repo_url: https://github.com/zetaloop/ExplorerPatcher
-# repo_name: ExplorerPatcher 汉化
+# repo_url: https://github.com/zetaloop/loop.build
+# repo_name: 占位符
 
 theme:
     name: material
@@ -35,7 +35,7 @@ theme:
               icon: material/lightbulb-outline
               name: 暗色
     icon:
-        #   repo: fontawesome/brands/github
+        # repo: fontawesome/brands/github
         annotation: material/chevron-right-circle
         admonition:
             note: octicons/tag-16
@@ -70,6 +70,10 @@ nav:
     - 主页: index.md
     - 项目:
           - docs/index.md
+          - PowerToys:
+                - docs/PowerToys/index.md
+          - ExplorerPatcher:
+                - docs/ExplorerPatcher/index.md
     - 工具:
           - tools/index.md
           - 服务器管理记录:
