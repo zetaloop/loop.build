@@ -1,18 +1,12 @@
-{% extends "base.html" %}
-
-{% block extrahead %}
-{{ super() }}
+{% extends "base.html" %} {% block extrahead %} {{ super() }}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-{% endblock %}
-
-{% block footer %}
-{{ super() }}
+{% endblock %} {% block footer %} {{ super() }}
 <script>
-    $(document).ready(function () {
-        $('body').timeago();
-        document$.subscribe(function () {
-            $('.timeago').timeago('refresh');
-        });
+  $(document).ready(function () {
+    $("body").timeago();
+    document$.subscribe(function () {
+      $(".timeago").timeago("refresh");
     });
+  });
 </script>
 {% endblock %}
