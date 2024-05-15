@@ -1,0 +1,15 @@
+<!-- Repository information -->
+<a href="https://loop.build" title="{{ lang.t('source') }}" class="md-source">
+  <div class="md-source__icon md-icon">
+    {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %} {%
+    include ".icons/" ~ icon ~ ".svg" %}
+  </div>
+  <div class="md-source__repository md-source__repository--active">
+    正在获取信息
+    <ul class="md-source__facts">
+      <li class="md-source__fact md-source__fact--version">加载中</li>
+      <li class="md-source__fact md-source__fact--stars">加载中</li>
+      <li class="md-source__fact md-source__fact--forks">加载中</li>
+    </ul>
+  </div>
+</a>

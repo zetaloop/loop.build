@@ -209,6 +209,10 @@ pre {
   .md-nav__title[for=__drawer] {
     background-color: unset !important;
   }
+
+  .md-nav__source {
+    background-color: unset !important;
+  }
 }
 
 
@@ -272,3 +276,38 @@ pre {
 [data-md-color-scheme=slate] .md-button:hover {
   background-color: var(--md-primary-fg-color) !important;
 }
+
+
+
+/* 实现动态显示储存库 */
+.md-header__source {
+  display: none;
+  margin-left: 0;
+  overflow: hidden;
+  transition: width 0.5s ease, margin-left 0.5s ease;
+}
+
+@media screen and (min-width: 60em) {
+  .md-header__source.show {
+    display: block;
+    width: 11.7rem;
+  }
+
+  [dir=ltr] .md-header__source {
+    margin-left: 1rem;
+  }
+}
+
+.md-source__facts {
+  display: none;
+}
+
+.md-source__fact {
+  display: none;
+}
+
+.repo {
+  display: none;
+}
+
+/* 下一步：适配移动端！！！ */

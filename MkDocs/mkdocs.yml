@@ -1,7 +1,6 @@
 site_name: 构建平台
 site_url: https://loop.build
-# repo_url: https://github.com/zetaloop/loop.build
-# repo_name: 占位符
+repo_url: https://example.com # 强制启用储存库标识，方便后续修改它
 
 theme:
     name: material
@@ -35,7 +34,7 @@ theme:
               icon: material/lightbulb-outline
               name: 暗色
     icon:
-        # repo: fontawesome/brands/github
+        repo: fontawesome/brands/github
         annotation: material/chevron-right-circle
         admonition:
             note: octicons/tag-16
@@ -117,6 +116,7 @@ extra_css:
     - resources/css/extra.min.css
 extra_javascript:
     - resources/js/darkmodefix.min.js
+    - resources/js/repoinfo.min.js
     # - resources/js/feedback.min.js
     - resources/js/timeago.min.js
     - resources/js/tablesort.min.js
