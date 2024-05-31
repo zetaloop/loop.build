@@ -16,6 +16,12 @@ document$.subscribe(function () {
     }
 
     function handleRepoInfo() {
+        $(".repo-release")
+            .text("[加载中...]")
+            .removeAttr("href")
+            .addClass("not-found");
+        $(".repo-date").text("[加载中...]");
+
         // The last <a class="repo"> element
         var $lastRepoLink = $("a.repo").last();
         if ($lastRepoLink.length === 0) {
@@ -73,6 +79,13 @@ document$.subscribe(function () {
                 });
 
                 function showRepoPanel() {
+                    // Check if the lastRepoLink is still the last one
+                    if ($lastRepoLink[0] !== $("a.repo").last()[0]) {
+                        $(".md-source").removeAttr("href");
+                        setTimeout(handleRepoInfo, 1);
+                        return;
+                    }
+
                     // Update the repo panel
                     $(".md-source__repository")
                         .contents()
@@ -107,6 +120,35 @@ document$.subscribe(function () {
                                 $(".md-source__fact--version")
                                     .text(`${releaseData.tag_name}`)
                                     .css("display", "list-item");
+
+                                $(".repo-release")
+                                    .text(`${releaseData.name}`)
+                                    .attr("href", releaseData.html_url)
+                                    .removeClass("not-found");
+                                var releaseDate = new Date(
+                                    releaseData.published_at
+                                );
+                                $(".repo-date")
+                                    .attr("datetime", releaseDate.toISOString())
+                                    .attr(
+                                        "title",
+                                        releaseDate.toLocaleDateString(
+                                            undefined,
+                                            {
+                                                year: "numeric",
+                                                month: "long",
+                                                day: "numeric",
+                                                hour: "numeric",
+                                                minute: "numeric",
+                                                second: "numeric",
+                                            }
+                                        )
+                                    )
+                                    .addClass("timeago");
+                                $(".timeago").timeago();
+                            } else {
+                                $(".repo-release").text("[未找到版本]");
+                                $(".repo-date").text("[未找到版本]");
                             }
                         }
                     );
@@ -120,6 +162,8 @@ document$.subscribe(function () {
                 }
             } else {
                 closeRepoPanel();
+                $(".repo-release").text("[储存库无效]");
+                $(".repo-date").text("[储存库无效]");
                 console.error("Invalid GitHub repository link: " + repoLink);
             }
         }

@@ -1,8 +1,8 @@
 [](https://github.com/zetaloop/PowerToys-CN){: .repo}
 # PowerToys
 
-版本: v0.80.1[](https://loop.build)<br>
-日期: <time class="timeago" datetime="2024-04-16" title="2024-04-16"></time>
+版本: [[自动查询]](){: .repo-release .not-found}<br>
+日期: <time class="repo-date" title="[自动查询]">[自动查询]</time>
 
 ---
 
