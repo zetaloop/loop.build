@@ -1,18 +1,25 @@
 document$.subscribe(function () {
+    function closeRepoPanel(callback = null) {
+        $(".md-source").attr("href", "");
+        $(".md-header__source").removeClass("show");
+        // after animation ends
+        setTimeout(function () {
+            $(".md-header__source").css("display", "none");
+            $(".md-source__facts").css("display", "none");
+            $(".md-md-source__fact--stars").css("display", "none");
+            $(".md-md-source__fact--forks").css("display", "none");
+            $(".md-md-source__fact--version").css("display", "none");
+            if (callback) {
+                callback();
+            }
+        }, 400);
+    }
+
     function handleRepoInfo() {
         // The last <a class="repo"> element
         var $lastRepoLink = $("a.repo").last();
         if ($lastRepoLink.length === 0) {
-            $(".md-source").attr("href", "");
-            $(".md-header__source").removeClass("show");
-            // after animation ends
-            setTimeout(function () {
-                $(".md-header__source").css("display", "none");
-                $(".md-source__facts").css("display", "none");
-                $(".md-md-source__fact--stars").css("display", "none");
-                $(".md-md-source__fact--forks").css("display", "none");
-                $(".md-md-source__fact--version").css("display", "none");
-            }, 500);
+            closeRepoPanel();
         } else {
             var repoName = $.trim($lastRepoLink.text());
             var repoLink = $lastRepoLink.attr("href");
@@ -31,19 +38,6 @@ document$.subscribe(function () {
                 if ($(".md-source").attr("href") === repoLink) {
                     return;
                 }
-
-                $(".md-source__repository")
-                    .contents()
-                    .filter(function () {
-                        return this.nodeType === 3; // Node.TEXT_NODE
-                    })
-                    .first()
-                    .replaceWith(repoName);
-                $(".md-source").attr("href", repoLink);
-                $(".md-header__source").css("display", "block");
-                setTimeout(function () {
-                    $(".md-header__source").addClass("show");
-                }, 1);
 
                 var repoInfoDeferred = $.Deferred();
                 var latestReleaseDeferred = $.Deferred();
@@ -78,41 +72,54 @@ document$.subscribe(function () {
                     },
                 });
 
-                // When all requests are done
-                $.when(repoInfoDeferred, latestReleaseDeferred).done(function (
-                    repoData,
-                    releaseData
-                ) {
-                    if (repoData || releaseData) {
-                        $(".md-source__facts").css("display", "flex");
-                    }
+                function showRepoPanel() {
+                    // Update the repo panel
+                    $(".md-source__repository")
+                        .contents()
+                        .filter(function () {
+                            return this.nodeType === 3; // Node.TEXT_NODE
+                        })
+                        .first()
+                        .replaceWith(repoName);
+                    $(".md-source").attr("href", repoLink);
+                    $(".md-header__source").css("display", "block");
+                    setTimeout(function () {
+                        $(".md-header__source").addClass("show");
+                    }, 1);
 
-                    if (repoData) {
-                        $(".md-source__fact--stars")
-                            .text(`${repoData.stargazers_count}`)
-                            .css("display", "list-item");
-                        $(".md-source__fact--forks")
-                            .text(`${repoData.forks_count}`)
-                            .css("display", "list-item");
-                    }
+                    // When all requests are done
+                    $.when(repoInfoDeferred, latestReleaseDeferred).done(
+                        function (repoData, releaseData) {
+                            if (repoData || releaseData) {
+                                $(".md-source__facts").css("display", "flex");
+                            }
 
-                    if (releaseData) {
-                        $(".md-source__fact--version")
-                            .text(`${releaseData.tag_name}`)
-                            .css("display", "list-item");
-                    }
-                });
+                            if (repoData) {
+                                $(".md-source__fact--stars")
+                                    .text(`${repoData.stargazers_count}`)
+                                    .css("display", "list-item");
+                                $(".md-source__fact--forks")
+                                    .text(`${repoData.forks_count}`)
+                                    .css("display", "list-item");
+                            }
+
+                            if (releaseData) {
+                                $(".md-source__fact--version")
+                                    .text(`${releaseData.tag_name}`)
+                                    .css("display", "list-item");
+                            }
+                        }
+                    );
+                }
+
+                // If the repo panel is open, close it
+                if ($(".md-header__source").hasClass("show")) {
+                    closeRepoPanel(showRepoPanel);
+                } else {
+                    showRepoPanel();
+                }
             } else {
-                $(".md-source").attr("href", "");
-                $(".md-header__source").removeClass("show");
-                // after animation ends
-                setTimeout(function () {
-                    $(".md-header__source").css("display", "none");
-                    $(".md-source__facts").css("display", "none");
-                    $(".md-md-source__fact--stars").css("display", "none");
-                    $(".md-md-source__fact--forks").css("display", "none");
-                    $(".md-md-source__fact--version").css("display", "none");
-                }, 500);
+                closeRepoPanel();
                 console.error("Invalid GitHub repository link: " + repoLink);
             }
         }
