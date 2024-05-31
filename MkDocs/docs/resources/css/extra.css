@@ -285,10 +285,17 @@ pre {
   margin-left: 0 !important;
   overflow: hidden;
   width: 0;
-  transition: width 0.4s cubic-bezier(.4, 0, .2, 1), margin 0.4s cubic-bezier(.4, 0, .2, 1);
+  transition: width .25s ease, margin .25s ease;
 }
 
-@media screen and (min-width: 60em) {
+.md-nav__source {
+  /* 移动端，旧的主页储存库面板，直接隐藏 */
+  display: none;
+}
+
+@media screen and (min-width: 60em)
+/* （电脑端） */
+  {
   .md-header__source.show {
     display: block;
     width: 11.7rem;
@@ -299,10 +306,12 @@ pre {
   }
 }
 
-@media screen and (max-width: 60em) {
+@media screen and (max-width: 60em)
+/* （移动端） */
+  {
   .md-header__source.show {
     display: block;
-    width: 11.7rem;
+    width: 2.4rem;
   }
 }
 
@@ -317,5 +326,3 @@ pre {
 .repo {
   display: none;
 }
-
-/* 下一步：适配移动端！！！ */
