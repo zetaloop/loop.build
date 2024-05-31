@@ -1,5 +1,5 @@
 document$.subscribe(function () {
-    function closeRepoPanel(callback = null) {
+    function closeRepoPanel(callback = null, timeout = 400) {
         $(".md-source").attr("href", "");
         $(".md-header__source").removeClass("show");
         // after animation ends
@@ -12,7 +12,7 @@ document$.subscribe(function () {
             if (callback) {
                 callback();
             }
-        }, 400);
+        }, timeout);
     }
 
     function handleRepoInfo() {
@@ -78,6 +78,41 @@ document$.subscribe(function () {
                     },
                 });
 
+                // When all requests are done, update repo info
+                $.when(repoInfoDeferred, latestReleaseDeferred).done(function (
+                    repoData,
+                    releaseData
+                ) {
+                    if (repoData) {
+                    }
+
+                    if (releaseData) {
+                        $(".repo-release")
+                            .text(`${releaseData.name}`)
+                            .attr("href", releaseData.html_url)
+                            .removeClass("not-found");
+                        var releaseDate = new Date(releaseData.published_at);
+                        $(".repo-date")
+                            .attr("datetime", releaseDate.toISOString())
+                            .attr(
+                                "title",
+                                releaseDate.toLocaleDateString(undefined, {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    second: "numeric",
+                                })
+                            )
+                            .addClass("timeago");
+                        $(".timeago").timeago();
+                    } else {
+                        $(".repo-release").text("[未找到版本]");
+                        $(".repo-date").text("[未找到版本]");
+                    }
+                });
+
                 function showRepoPanel() {
                     // Check if the lastRepoLink is still the last one
                     if ($lastRepoLink[0] !== $("a.repo").last()[0]) {
@@ -100,7 +135,7 @@ document$.subscribe(function () {
                         $(".md-header__source").addClass("show");
                     }, 1);
 
-                    // When all requests are done
+                    // When all requests are done, update repo panel
                     $.when(repoInfoDeferred, latestReleaseDeferred).done(
                         function (repoData, releaseData) {
                             if (repoData || releaseData) {
@@ -120,35 +155,6 @@ document$.subscribe(function () {
                                 $(".md-source__fact--version")
                                     .text(`${releaseData.tag_name}`)
                                     .css("display", "list-item");
-
-                                $(".repo-release")
-                                    .text(`${releaseData.name}`)
-                                    .attr("href", releaseData.html_url)
-                                    .removeClass("not-found");
-                                var releaseDate = new Date(
-                                    releaseData.published_at
-                                );
-                                $(".repo-date")
-                                    .attr("datetime", releaseDate.toISOString())
-                                    .attr(
-                                        "title",
-                                        releaseDate.toLocaleDateString(
-                                            undefined,
-                                            {
-                                                year: "numeric",
-                                                month: "long",
-                                                day: "numeric",
-                                                hour: "numeric",
-                                                minute: "numeric",
-                                                second: "numeric",
-                                            }
-                                        )
-                                    )
-                                    .addClass("timeago");
-                                $(".timeago").timeago();
-                            } else {
-                                $(".repo-release").text("[未找到版本]");
-                                $(".repo-date").text("[未找到版本]");
                             }
                         }
                     );
