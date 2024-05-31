@@ -15,7 +15,7 @@
     <span style="margin-right: 20px;"></span>
     [:octicons-download-24: 汉化包 :fontawesome-brands-github:](https://github.com/Zetaloop/PowerToys-CN/releases "GitHub Releases") | [:fontawesome-solid-cloud:](https://zeta.lanzouq.com/b0ny180uh "蓝奏云 密码zeta")
 
--   **ExplorerPatcher** [`已转移`]("汉化版不再更新，现在在维护原版的中文翻译")
+-   **ExplorerPatcher** [`已转移`](https://github.com/valinet/ExplorerPatcher-l10n "汉化版不再更新，现在在维护原版的中文翻译")
 
     还你一个高效的旧版 Windows 界面
 
