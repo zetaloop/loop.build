@@ -75,13 +75,13 @@ nav:
                 - docs/ExplorerPatcher/index.md
     - 工具:
           - tools/index.md
-          - 服务器管理记录:
+          - 服务器备忘录:
                 - tools/server/index.md
+                - 布局: tools/server/stack.md
                 - 日常维护: tools/server/maintain.md
                 - SSH: tools/server/ssh.md
                 - UFW: tools/server/ufw.md
                 - Nginx: tools/server/nginx.md
-                - Cloudflare: tools/server/cloudflare.md
                 - Docker Engine: tools/server/docker.md
     - 博客: blog/index.md
     - 动态: update/index.md
