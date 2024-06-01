@@ -272,13 +272,6 @@ pre {
 
 
 
-/* 防止夜间按钮瞎眼 */
-[data-md-color-scheme=slate] .md-button:hover {
-  background-color: var(--md-primary-fg-color) !important;
-}
-
-
-
 /* 实现动态显示储存库 */
 .md-header__source {
   display: none;
@@ -327,11 +320,25 @@ pre {
   display: none;
 }
 
-/* 更多储存库信息 */
+/* （内嵌储存库信息） */
 .repo-release.not-found {
   color: var(--md-default-fg-color);
 }
 
 .repo-date {
   color: var(--md-default-fg-color) !important;
+}
+
+
+
+/* 防止夜间按钮瞎眼 */
+[data-md-color-scheme=slate] .md-button:hover {
+  background-color: var(--md-primary-fg-color) !important;
+}
+
+
+
+/* Mermaid 图表居中 */
+.mermaid {
+  text-align: center;
 }
