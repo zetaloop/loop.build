@@ -73,7 +73,7 @@ nav:
                 - docs/PowerToys/index.md
           - ExplorerPatcher:
                 - docs/ExplorerPatcher/index.md
-    - 工具:
+    - 服务:
           - tools/index.md
           - 服务器备忘录:
                 - tools/server/index.md

@@ -1,5 +1,5 @@
 # 服务器技术栈
-日期：2024-04-21
+日期：2024-06-01
  ---
 ## 结构图
 
@@ -15,7 +15,7 @@ flowchart LR
     loop_main[loop.build]
     nginx_redirect[<b>www</b>.loop.build 🡒 loop.build]
     docs[./docs 文档]
-    tools[./tools 工具]
+    tools[./tools 服务]
     blog[./blog 博客]
     update[./update 更新]
     about[./about 关于]
