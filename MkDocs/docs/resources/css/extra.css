@@ -234,6 +234,11 @@ pre {
     background: none;
     box-shadow: none;
   }
+
+  .md-nav--primary .md-nav__title {
+    background: none;
+    box-shadow: none;
+  }
 }
 
 .admonition {
