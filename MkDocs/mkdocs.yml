@@ -74,17 +74,18 @@ nav:
           - ExplorerPatcher:
                 - docs/ExplorerPatcher/index.md
     - 服务:
-          - tools/index.md
+          - apps/index.md
           - 服务器备忘录:
-                - tools/server/index.md
-                - 布局: tools/server/stack.md
-                - 日常维护: tools/server/maintain.md
-                - SSH: tools/server/ssh.md
-                - UFW: tools/server/ufw.md
-                - Nginx: tools/server/nginx.md
-                - Docker Engine: tools/server/docker.md
+                - apps/server/index.md
+                - 布局: apps/server/stack.md
+                - 日常维护: apps/server/maintain.md
+                - SSH: apps/server/ssh.md
+                - UFW: apps/server/ufw.md
+                - Nginx: apps/server/nginx.md
+                - Docker: apps/server/docker.md
+                - RustDesk Server: apps/server/rustdesk.md
     - 博客: blog/index.md
-    - 动态: update/index.md
+    - 动态: space/index.md
     - 关于: about.md
 
 # extra:
@@ -134,7 +135,7 @@ plugins:
           post_url_format: "{date}/{slug}"
           post_date_format: "__LOOP__ACCURATETIME"
     - blog:
-          blog_dir: update
+          blog_dir: space
           blog_toc: true
           post_url_format: "{slug}"
           post_readtime: false

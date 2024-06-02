@@ -15,9 +15,9 @@ flowchart LR
     loop_main[loop.build]
     nginx_redirect[<b>www</b>.loop.build 🡒 loop.build]
     docs[./docs 文档]
-    tools[./tools 服务]
+    apps[./apps 服务]
     blog[./blog 博客]
-    update[./update 更新]
+    space[./space 动态]
     about[./about 关于]
     redirector[子域名短网址跳转服务（举例）\n<b>docs</b>.loop.build 🡒 loop.build/docs\n<b>bilibili</b>.loop.build 🡒 space.bilibili.com/99583527]
     other_tools[其他服务与工具\n由 Nginx 代理或直接访问\n（举例）]
@@ -28,9 +28,9 @@ flowchart LR
     nginx ---|MkDocs 静态主站| loop_main
     nginx ---|301| nginx_redirect
     loop_main --- docs
-    loop_main --- tools
+    loop_main --- apps
     loop_main --- blog
-    loop_main --- update
+    loop_main --- space
     loop_main --- about
     nginx ---|其他子域| redirector
     nginx ---|其他部署| other_tools
