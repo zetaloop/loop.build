@@ -23,3 +23,8 @@
 
 ### [Docker](docker.md)
 容器引擎，用于模块化部署大多数的服务
+
+ ---
+
+### [RustDesk 服务器](rustdesk.md)
+远程控制软件 RustDesk 的自托管服务器

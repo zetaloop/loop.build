@@ -26,3 +26,24 @@ apt update
 ```bash
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+设定别名
+```bash
+echo 'alias docker-compose="docker compose"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+## 如何管理容器
+我们使用 Docker Compose
+```bash title="启动容器"
+docker compose up -d
+```
+```bash title="停止容器"
+docker compose down
+```
+```bash title="查看状态"
+docker compose ps
+```
+```bash title="查看日志"
+docker compose logs
+```
