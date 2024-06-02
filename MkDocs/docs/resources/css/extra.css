@@ -342,3 +342,10 @@ pre {
 .mermaid {
   text-align: center;
 }
+
+
+
+/* 表情居中 */
+.twemoji {
+  vertical-align: -12% !important;
+}
