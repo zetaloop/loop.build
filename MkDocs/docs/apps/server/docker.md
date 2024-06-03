@@ -1,6 +1,4 @@
 # Docker
-更新日期：2024-04-16
- ---
 
 ## 安装 Docker Engine 套装
 来源：[docs.docker.com](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
