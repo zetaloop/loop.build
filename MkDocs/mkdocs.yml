@@ -83,6 +83,7 @@ nav:
                 - UFW: apps/server/ufw.md
                 - Nginx: apps/server/nginx.md
                 - Docker: apps/server/docker.md
+                - Node.js: apps/server/node.md
                 - RustDesk Server: apps/server/rustdesk.md
     - 博客: blog/index.md
     - 动态: space/index.md
