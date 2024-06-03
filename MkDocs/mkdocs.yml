@@ -155,6 +155,10 @@ plugins:
       lang:
         - zh
         - en
+  - git-revision-date-localized:
+      type: iso_datetime
+      enable_creation_date: true # 创建日期
+      fallback_to_build_date: true # 无法获取修改日期时回退到构建日期
   - glightbox: # 图片展示框
       touchNavigation: true
       loop: false
