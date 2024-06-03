@@ -283,7 +283,7 @@ pre {
 }
 
 .giscus-frame {
-  transition: opacity .5s ease-in, opacity 1s ease-out;
+  transition: opacity .7s ease-in, opacity 1s ease-out;
 }
 
 
