@@ -133,18 +133,26 @@ plugins:
   - loop_custom: # Custom plugin, directly inject functions
   - meta: #![INSIDERS]
   - blog:
-      blog_toc: true
       authors_profiles: true
-      post_url_date_format: yyyy/MM
+      blog_dir: blog
+      blog_toc: true
+      pagination_if_single_page: true
+      archive: true
+      archive_url_date_format: yyyyMM
+      archive_url_format: "{date}"
+      archive_date_format: "yyyy年M月"
+      post_url_date_format: yyyyMM
       post_url_format: "{date}/{slug}"
       post_date_format: "__LOOP__ACCURATETIME"
   - blog:
+      authors_profiles: true
       blog_dir: space
       blog_toc: true
-      post_url_format: "{slug}"
-      post_readtime: false
+      pagination_if_single_page: true
       archive: false
+      post_readtime: false
       post_slugify_separator: "__LOOP__HASH12"
+      post_url_format: "{slug}"
       post_date_format: "__LOOP__ACCURATETIME"
   - redirects:
       redirect_maps:
