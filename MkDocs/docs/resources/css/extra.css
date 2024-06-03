@@ -241,6 +241,13 @@ pre {
   }
 }
 
+@media screen and (min-width: 60em) {
+  .md-nav--secondary .md-nav__title {
+    background: none;
+    box-shadow: none;
+  }
+}
+
 .admonition {
   background-color: unset !important;
 }
