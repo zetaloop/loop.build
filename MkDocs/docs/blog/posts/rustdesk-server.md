@@ -1,14 +1,14 @@
 ---
 date:
-    created: 2024-06-03 03:31:47
+  created: 2024-06-03 03:31:47
 authors:
-    - fox
+  - fox
 categories:
-    - RustDesk
-    - 远程控制
-    - 服务
+  - RustDesk
+  - 远程控制
+  - 服务
 links:
-    - RustDesk 官网: https://rustdesk.com
+  - RustDesk 官网: https://rustdesk.com
 ---
 # Linux 如何搭建 RustDesk 服务器
 有时候同学来找我解决电脑问题，我们身处异地，但各种远程连接软件又总是卡顿断联。怎么办呢？

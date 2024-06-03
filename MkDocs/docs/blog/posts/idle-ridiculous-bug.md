@@ -1,14 +1,14 @@
 ---
 date:
-    created: 2024-05-21 04:15:46
+  created: 2024-05-21 04:15:46
 authors:
-    - fox
+  - fox
 categories:
-    - 汉化
-    - Python
-    - Python IDLE
-    - Bug
-    - Hack
+  - 汉化
+  - Python
+  - Python IDLE
+  - Bug
+  - Hack
 ---
 
 # IDLE 的逆天 Bug

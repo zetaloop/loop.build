@@ -3,91 +3,93 @@ site_url: https://loop.build
 repo_url: https://example.com # 强制启用储存库标识，方便后续修改它
 
 theme:
-    name: material
-    language: zh
-    custom_dir: overrides
+  name: material
+  language: zh
+  custom_dir: overrides
 
-    logo: resources/img/logo.png
-    favicon: resources/img/favicon.png
-    font: false
+  logo: resources/img/logo.png
+  favicon: resources/img/favicon.png
+  font: false
 
-    palette:
-        # 自动亮暗色
-        - media: "(prefers-color-scheme)"
-          toggle:
-              icon: material/lightbulb-auto
-              name: 自动
-        # 亮色
-        - media: "(prefers-color-scheme: light)"
-          scheme: default
-          primary: white
-          accent: custom
-          toggle:
-              icon: material/lightbulb
-              name: 亮色
-        # 暗色
-        - media: "(prefers-color-scheme: dark)"
-          scheme: slate
-          primary: custom
-          accent: custom
-          toggle:
-              icon: material/lightbulb-outline
-              name: 暗色
-    icon:
-        repo: fontawesome/brands/github
-        annotation: material/chevron-right-circle
-        admonition:
-            note: octicons/tag-16
-            abstract: octicons/checklist-16
-            info: octicons/info-16
-            tip: octicons/bell-16
-            success: octicons/check-circle-16
-            question: octicons/question-16
-            warning: octicons/alert-16
-            failure: octicons/x-circle-16
-            danger: octicons/zap-16
-            bug: octicons/bug-16
-            example: octicons/beaker-16
-            quote: octicons/quote-16
-    features:
-        - navigation.instant # 原地加载
-        - navigation.instant.progress # 进度条
-        - navigation.tabs # 选项卡
-        - navigation.indexes # 子文件夹也拥有自己的 index 页面
-        - navigation.prune # 页面导航栏仅生成可见的部分
-        - toc.integrate # 文章目录也放在导航栏里边
-        - search.suggest # 搜索建议
-        - search.highlight # 高亮搜索词
-        # - header.autohide # 自动隐藏标题栏 # CSS 已修改，请勿开启
-        - content.code.copy # 代码复制按钮
-        - content.code.select # 代码选择按钮
-        - content.code.annotate # 代码内引用
-        - content.tabs.link # 内容选项卡同步切换
-        - content.tooltips
+  palette:
+    # 自动亮暗色
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/lightbulb-auto
+        name: 自动
+    # 亮色
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: 亮色
+    # 暗色
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb-outline
+        name: 暗色
+  icon:
+    repo: fontawesome/brands/github
+    annotation: material/chevron-right-circle
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/bell-16
+      success: octicons/check-circle-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.instant # 原地加载
+    - navigation.instant.prefetch # 预加载 #![INSIDERS]
+    - navigation.instant.progress # 进度条
+    - navigation.path # 路径导航 #![INSIDERS]
+    - navigation.tabs # 选项卡
+    - navigation.indexes # 子文件夹也拥有自己的 index 页面
+    - navigation.prune # 页面导航栏仅生成可见的部分
+    - toc.integrate # 文章目录也放在导航栏里边
+    - search.suggest # 搜索建议
+    - search.highlight # 高亮搜索词
+    # - header.autohide # 自动隐藏标题栏 # CSS 已修改，请勿开启
+    - content.code.copy # 代码复制按钮
+    - content.code.select # 代码选择按钮
+    - content.code.annotate # 代码内引用
+    - content.tabs.link # 内容选项卡同步切换
+    - content.tooltips
 
 nav:
-    - 主页: index.md
-    - 项目:
-          - docs/index.md
-          - PowerToys:
-                - docs/PowerToys/index.md
-          - ExplorerPatcher:
-                - docs/ExplorerPatcher/index.md
-    - 服务:
-          - apps/index.md
-          - 服务器备忘录:
-                - apps/server/index.md
-                - 布局: apps/server/stack.md
-                - 日常维护: apps/server/maintain.md
-                - SSH: apps/server/ssh.md
-                - UFW: apps/server/ufw.md
-                - Nginx: apps/server/nginx.md
-                - Docker: apps/server/docker.md
-                - Node.js: apps/server/node.md
-                - RustDesk Server: apps/server/rustdesk.md
-    - 博客: blog/index.md
-    - 动态: space/index.md
-    - 关于: about.md
+  - 主页: index.md
+  - 项目:
+      - docs/index.md
+      - PowerToys:
+          - docs/PowerToys/index.md
+      - ExplorerPatcher:
+          - docs/ExplorerPatcher/index.md
+  - 服务:
+      - apps/index.md
+      - 服务器备忘录:
+          - apps/server/index.md
+          - 布局: apps/server/stack.md
+          - 日常维护: apps/server/maintain.md
+          - SSH: apps/server/ssh.md
+          - UFW: apps/server/ufw.md
+          - Nginx: apps/server/nginx.md
+          - Docker: apps/server/docker.md
+          - Node.js: apps/server/node.md
+          - RustDesk Server: apps/server/rustdesk.md
+  - 博客: blog/index.md
+  - 动态: space/index.md
+  - 关于: about.md
 
 # extra:
 #   analytics:
@@ -115,104 +117,105 @@ nav:
 
 # Remember to add .min
 extra_css:
-    - resources/css/extra.min.css
+  - resources/css/extra.min.css
 extra_javascript:
-    - resources/js/darkmodefix.min.js
-    - resources/js/repoinfo.min.js
-    # - resources/js/feedback.min.js
-    - resources/js/timeago.min.js
-    - resources/js/tablesort.min.js
-    - resources/js/mathjax.min.js
-    - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-    - https://polyfill.io/v3/polyfill.min.js?features=es6
-    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - resources/js/darkmodefix.min.js
+  - resources/js/repoinfo.min.js
+  # - resources/js/feedback.min.js
+  - resources/js/timeago.min.js
+  - resources/js/tablesort.min.js
+  - resources/js/mathjax.min.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
-    - loop_custom: # Custom plugin, directly inject functions
-    - blog:
-          blog_toc: true
-          post_url_date_format: yyyy/MM
-          post_url_format: "{date}/{slug}"
-          post_date_format: "__LOOP__ACCURATETIME"
-    - blog:
-          blog_dir: space
-          blog_toc: true
-          post_url_format: "{slug}"
-          post_readtime: false
-          archive: false
-          post_slugify_separator: "__LOOP__HASH12"
-          post_date_format: "__LOOP__ACCURATETIME"
-    - redirects:
-          redirect_maps:
-              # 'old.md': 'new.md'
-              # 'old/file.md': 'new/file.md'
-              # 'link.md': 'https://baidu.com' # ~/link -> https://baidu.com
-    - search:
-          lang:
-              - zh
-              - en
-    - glightbox: # 图片展示框
-          touchNavigation: true
-          loop: false
-          effect: zoom
-          slide_effect: slide
-          width: auto
-          height: auto
-          zoomable: true
-          draggable: true
-          auto_caption: false
-          caption_position: bottom
-          background: none
-          shadow: false
-    - minify:
-          minify_html: true
-          minify_js: true
-          minify_css: true
-          js_files: "resources/js/*.js"
-          css_files: "resources/css/*.css"
+  - loop_custom: # Custom plugin, directly inject functions
+  - blog:
+      blog_toc: true
+      authors_profiles: true
+      post_url_date_format: yyyy/MM
+      post_url_format: "{date}/{slug}"
+      post_date_format: "__LOOP__ACCURATETIME"
+  - blog:
+      blog_dir: space
+      blog_toc: true
+      post_url_format: "{slug}"
+      post_readtime: false
+      archive: false
+      post_slugify_separator: "__LOOP__HASH12"
+      post_date_format: "__LOOP__ACCURATETIME"
+  - redirects:
+      redirect_maps:
+        # 'old.md': 'new.md'
+        # 'old/file.md': 'new/file.md'
+        # 'link.md': 'https://baidu.com' # ~/link -> https://baidu.com
+  - search:
+      lang:
+        - zh
+        - en
+  - glightbox: # 图片展示框
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: auto
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+      background: none
+      shadow: false
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      js_files: "resources/js/*.js"
+      css_files: "resources/css/*.css"
 
 markdown_extensions:
-    - abbr
-    - admonition
-    - attr_list
-    - def_list
-    - footnotes
-    - md_in_html
-    - tables
-    - toc:
-          permalink: true # 书签锚点
-          permalink_title: "书签"
-          slugify: !!python/object/apply:pymdownx.slugs.slugify
-              kwds:
-                  case: lower
-    - pymdownx.arithmatex:
-          generic: true
-    - pymdownx.details
-    - pymdownx.snippets
-    - pymdownx.superfences:
-          custom_fences:
-              - name: mermaid
-                class: mermaid
-                format: !!python/name:pymdownx.superfences.fence_code_format
-    - pymdownx.tabbed:
-          alternate_style: true
-          slugify: !!python/object/apply:pymdownx.slugs.slugify
-              kwds:
-                  case: lower
-    - pymdownx.tasklist:
-          custom_checkbox: true
-    - pymdownx.highlight:
-          auto_title: true # 显示语言
-          linenums: true # 行号
-          anchor_linenums: true # 行号锚点
-          line_spans: __span
-          pygments_lang_class: true
-    - pymdownx.inlinehilite
-    - pymdownx.emoji:
-          emoji_index: !!python/name:material.extensions.emoji.twemoji
-          emoji_generator: !!python/name:material.extensions.emoji.to_svg
-    - pymdownx.critic # {--deleted--} {++added++} {==highlighted==} {>>comment<<}
-    - pymdownx.caret # ~subscript~ ^superscript^ H~2~O A^T^A
-    - pymdownx.mark # ==marked==
-    - pymdownx.tilde # ~
-    - pymdownx.keys # <kbd>Ctrl</kbd> -> ++Ctrl+alt+del++
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true # 书签锚点
+      permalink_title: "书签"
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      auto_title: true # 显示语言
+      linenums: true # 行号
+      anchor_linenums: true # 行号锚点
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.critic # {--deleted--} {++added++} {==highlighted==} {>>comment<<}
+  - pymdownx.caret # ~subscript~ ^superscript^ H~2~O A^T^A
+  - pymdownx.mark # ==marked==
+  - pymdownx.tilde # ~
+  - pymdownx.keys # <kbd>Ctrl</kbd> -> ++Ctrl+alt+del++
