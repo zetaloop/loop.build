@@ -282,6 +282,10 @@ pre {
   animation: fix-tabs-fade-in 1s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
+.giscus-frame {
+  transition: opacity .5s ease-in, opacity 1s ease-out;
+}
+
 
 
 /* 实现动态显示储存库 */

@@ -29,6 +29,9 @@
 
     // Instruct Giscus to set theme
     giscus.setAttribute("data-theme", theme);
+
+    // Save last theme
+    var lastTheme = theme;
   }
 
   // Register event handlers after documented loaded
@@ -42,12 +45,32 @@
 
         // Instruct Giscus to change theme
         var frame = document.querySelector(".giscus-frame");
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        );
+        if (lastTheme !== theme) {
+          lastTheme = theme;
+
+          frame.style.opacity = 0;
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          );
+
+          // Remove Giscus title
+          frame.removeAttribute("title");
+
+          // Show when frame is loaded
+          setTimeout(function () {
+            frame.style.opacity = 0;
+          }, 500);
+          setTimeout(function () {
+            frame.style.opacity = 1;
+          }, 1000);
+        }
       }
     });
+
+    // Remove Giscus title
+    var frame = document.querySelector(".giscus-frame");
+    frame.removeAttribute("title");
   });
 </script>
 {% endif %}
