@@ -1,8 +1,6 @@
 ---
 date:
   created: 2024-04-07
-authors:
-  - fox
 categories:
   - 测试
   - 狐言乱语

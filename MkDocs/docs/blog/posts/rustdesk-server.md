@@ -1,8 +1,6 @@
 ---
 date:
   created: 2024-06-03 03:31:47
-authors:
-  - fox
 categories:
   - RustDesk
   - 远程控制
