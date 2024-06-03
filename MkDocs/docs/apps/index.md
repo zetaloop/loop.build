@@ -1,6 +1,12 @@
 # 服务
-网站上部署的在线工具
  ---
-### [服务器备忘录](server/index.md)
-各组件的配置记录，便于后续维护查阅
- ---
+## 在线服务
+<div class="grid cards" markdown>
+
+-   **:material-sticker-outline: 服务器备忘录**
+
+    各组件的配置记录，便于后续维护查阅
+
+    [:octicons-arrow-right-24: 阅读](server/index.md)
+
+</div>
