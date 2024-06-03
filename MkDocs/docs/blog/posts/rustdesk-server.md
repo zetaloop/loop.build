@@ -78,7 +78,7 @@ cat data/id_ed25519.pub  # 显示密钥
 ```
 你的密钥应该大致长这个样子：`9tBI0BK0hUi5McRIADzyjsqvRxPgYD9X0WZpFPRRTXb=`（这个是假的）
 
-## RustDesk 客户端设置
+## 设置 RustDesk 客户端
 
 电脑端打开 `设置 -> 网络设置 -> ID/中继服务器`，手机端打开 `设置 -> ID/中继服务器`。
 
