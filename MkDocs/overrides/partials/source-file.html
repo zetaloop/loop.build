@@ -1,18 +1,18 @@
-<!-- Render date of last update -->
-{% macro render_updated(date) %}
-<span class="md-source-file__fact">
-  <span class="md-icon" title="{{ lang.t('source.file.date.updated') }}">
-    {% include ".icons/material/clock-edit-outline.svg" %}
-  </span>
-  {{ date }}
-</span>
-{% endmacro %}
-
 <!-- Render date of creation -->
 {% macro render_created(date) %}
 <span class="md-source-file__fact">
   <span class="md-icon" title="{{ lang.t('source.file.date.created') }}">
     {% include ".icons/material/clock-plus-outline.svg" %}
+  </span>
+  {{ date }}
+</span>
+{% endmacro %}
+
+<!-- Render date of last update -->
+{% macro render_updated(date) %}
+<span class="md-source-file__fact">
+  <span class="md-icon" title="{{ lang.t('source.file.date.updated') }}">
+    {% include ".icons/material/clock-edit-outline.svg" %}
   </span>
   {{ date }}
 </span>
@@ -90,9 +90,11 @@ config.plugins.get("git-authors") %}
 <!-- ---------------------------------------------------------------------- -->
 
 <!-- Determine date of last update -->
-{% if page.meta %} {% if page.meta.git_revision_date_localized %} {% set updated
-= page.meta.git_revision_date_localized %} {% elif page.meta.revision_date %} {%
-set updated = page.meta.revision_date %} {% endif %}
+{% if page.meta %} {% if page.meta.git_revision_date_localized %} {% if
+page.meta.git_revision_date_localized != page.meta.git_creation_date_localized
+%} {% set updated = page.meta.git_revision_date_localized %}{% endif %} {% elif
+page.meta.revision_date %} {% set updated = page.meta.revision_date %} {% endif
+%}
 
 <!-- Determine date of creation -->
 {% if page.meta.git_creation_date_localized %} {% set created =
