@@ -354,6 +354,13 @@ pre {
 
 
 
+/* 修复文章宽度问题 */
+.md-content__inner {
+  width: 100%
+}
+
+
+
 /* Mermaid 图表居中 */
 .mermaid {
   text-align: center;
