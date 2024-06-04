@@ -87,3 +87,9 @@ to provide extended functionality, like for example support for versioning.
   [Insiders]: about/sponsor.md
 
 ### <!-- md:locked --> - 不公开 { #locked }
+
+该功能为私人使用，不对外开放。
+
+### <!-- md:moved --> - 已转移 { #moved }
+
+该项目已经转移到别处。

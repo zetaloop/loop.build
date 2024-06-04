@@ -72,6 +72,8 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
                 return _badge_for_default(args, page, files)
         elif type == "locked":
             return _badge_for_locked(args, page, files)
+        elif type == "moved":
+            return _badge_for_moved(args, page, files)
 
         # Otherwise, raise an error
         raise RuntimeError(f"Unknown shortcode: {type}")
@@ -307,3 +309,10 @@ def _badge_for_locked(text: str, page: Page, files: Files):
     icon = "material-lock"
     href = _resolve_path("symbols.md#locked", page, files)
     return _badge(icon=f"[:{icon}:]({href} '不公开')", text=text)
+
+
+# Create badge for moved flag
+def _badge_for_moved(text: str, page: Page, files: Files):
+    icon = "material-arrow-u-right-top"
+    href = _resolve_path("symbols.md#moved", page, files)
+    return _badge(icon=f"[:{icon}:]({href} '已转移')", text=text)
