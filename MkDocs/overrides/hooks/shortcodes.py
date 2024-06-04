@@ -41,10 +41,7 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
         type, args = match.groups()
         args = args.strip()
         if type == "version":
-            if args.startswith("insiders-"):
-                return _badge_for_version_insiders(args, page, files)
-            else:
-                return _badge_for_version(args, page, files)
+            return _badge_for_version(args, page, files)
         elif type == "sponsors":
             return _badge_for_sponsors(page, files)
         elif type == "flag":
@@ -53,14 +50,6 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
             return option(args)
         elif type == "setting":
             return setting(args)
-        elif type == "feature":
-            return _badge_for_feature(args, page, files)
-        elif type == "plugin":
-            return _badge_for_plugin(args, page, files)
-        elif type == "extension":
-            return _badge_for_extension(args, page, files)
-        elif type == "utility":
-            return _badge_for_utility(args, page, files)
         elif type == "example":
             return _badge_for_example(args, page, files)
         elif type == "default":
@@ -70,8 +59,6 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
                 return _badge_for_default_computed(page, files)
             else:
                 return _badge_for_default(args, page, files)
-        elif type == "locked":
-            return _badge_for_locked(args, page, files)
         elif type == "moved":
             return _badge_for_moved(args, page, files)
 
@@ -94,12 +81,8 @@ def flag(args: str, page: Page, files: Files):
         return _badge_for_experimental(page, files)
     elif type == "required":
         return _badge_for_required(page, files)
-    elif type == "customization":
-        return _badge_for_customization(page, files)
-    elif type == "metadata":
-        return _badge_for_metadata(page, files)
-    elif type == "multiple":
-        return _badge_for_multiple(page, files)
+    elif type == "locked":
+        return _badge_for_locked(page, files)
     raise RuntimeError(f"Unknown type: {type}")
 
 
@@ -166,58 +149,9 @@ def _badge_for_sponsors(page: Page, files: Files):
 
 # Create badge for version
 def _badge_for_version(text: str, page: Page, files: Files):
-    spec = text
-    path = f"changelog/index.md#{spec}"
-
-    # Return badge
     icon = "material-tag-outline"
-    href = _resolve_path("symbols.md#version", page, files)
-    return _badge(
-        icon=f"[:{icon}:]({href} '最小版本')",
-        text=f"[{text}]({_resolve_path(path, page, files)})" if spec else "",
-    )
-
-
-# Create badge for version of Insiders
-def _badge_for_version_insiders(text: str, page: Page, files: Files):
-    spec = text.replace("insiders-", "")
-    path = f"insiders/changelog/index.md#{spec}"
-
-    # Return badge
-    icon = "material-tag-heart-outline"
-    href = _resolve_path("symbols.md#version-insiders", page, files)
-    return _badge(
-        icon=f"[:{icon}:]({href} '最小版本')",
-        text=f"[{text}]({_resolve_path(path, page, files)})" if spec else "",
-    )
-
-
-# Create badge for feature
-def _badge_for_feature(text: str, page: Page, files: Files):
-    icon = "material-toggle-switch"
-    href = _resolve_path("symbols.md#feature", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '可选功能')", text=text)
-
-
-# Create badge for plugin
-def _badge_for_plugin(text: str, page: Page, files: Files):
-    icon = "material-floppy"
-    href = _resolve_path("symbols.md#plugin", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '插件')", text=text)
-
-
-# Create badge for extension
-def _badge_for_extension(text: str, page: Page, files: Files):
-    icon = "material-language-markdown"
-    href = _resolve_path("symbols.md#extension", page, files)
-    return _badge(icon=f"[:{icon}:]({href} 'Markdown 扩展')", text=text)
-
-
-# Create badge for utility
-def _badge_for_utility(text: str, page: Page, files: Files):
-    icon = "material-package-variant"
-    href = _resolve_path("symbols.md#utility", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '第三方功能')", text=text)
+    href = _resolve_path("about/symbols.md#version", page, files)
+    return _badge(icon=f"[:{icon}:]({href} '最小版本')", text=f"{text}")
 
 
 # Create badge for example
@@ -251,68 +185,47 @@ def _badge_for_example_download(text: str, page: Page, files: Files):
 # Create badge for default value
 def _badge_for_default(text: str, page: Page, files: Files):
     icon = "material-water"
-    href = _resolve_path("symbols.md#default", page, files)
+    href = _resolve_path("about/symbols.md#default", page, files)
     return _badge(icon=f"[:{icon}:]({href} '默认值')", text=text)
 
 
 # Create badge for empty default value
 def _badge_for_default_none(page: Page, files: Files):
     icon = "material-water-outline"
-    href = _resolve_path("symbols.md#default", page, files)
+    href = _resolve_path("about/symbols.md#default", page, files)
     return _badge(icon=f"[:{icon}:]({href} '默认值为空')")
 
 
 # Create badge for computed default value
 def _badge_for_default_computed(page: Page, files: Files):
     icon = "material-water-check"
-    href = _resolve_path("symbols.md#default", page, files)
+    href = _resolve_path("about/symbols.md#default", page, files)
     return _badge(icon=f"[:{icon}:]({href} '默认值动态计算')")
-
-
-# Create badge for metadata property flag
-def _badge_for_metadata(page: Page, files: Files):
-    icon = "material-list-box-outline"
-    href = _resolve_path("symbols.md#metadata", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '元数据属性')")
 
 
 # Create badge for required value flag
 def _badge_for_required(page: Page, files: Files):
     icon = "material-alert"
-    href = _resolve_path("symbols.md#required", page, files)
+    href = _resolve_path("about/symbols.md#required", page, files)
     return _badge(icon=f"[:{icon}:]({href} '必填')")
-
-
-# Create badge for customization flag
-def _badge_for_customization(page: Page, files: Files):
-    icon = "material-brush-variant"
-    href = _resolve_path("symbols.md#customization", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '定制')")
-
-
-# Create badge for multiple instance flag
-def _badge_for_multiple(page: Page, files: Files):
-    icon = "material-inbox-multiple"
-    href = _resolve_path("symbols.md#multiple-instances", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '多实例')")
 
 
 # Create badge for experimental flag
 def _badge_for_experimental(page: Page, files: Files):
     icon = "material-flask-outline"
-    href = _resolve_path("symbols.md#experimental", page, files)
+    href = _resolve_path("about/symbols.md#experimental", page, files)
     return _badge(icon=f"[:{icon}:]({href} '实验性')")
 
 
 # Create badge for locked flag
-def _badge_for_locked(text: str, page: Page, files: Files):
-    icon = "material-lock"
-    href = _resolve_path("symbols.md#locked", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '不公开')", text=text)
+def _badge_for_locked(page: Page, files: Files):
+    icon = "material-lock-outline"
+    href = _resolve_path("about/symbols.md#locked", page, files)
+    return _badge(icon=f"[:{icon}:]({href} '不公开')")
 
 
 # Create badge for moved flag
 def _badge_for_moved(text: str, page: Page, files: Files):
     icon = "material-arrow-u-right-top"
-    href = _resolve_path("symbols.md#moved", page, files)
+    href = _resolve_path("about/symbols.md#moved", page, files)
     return _badge(icon=f"[:{icon}:]({href} '已转移')", text=text)
