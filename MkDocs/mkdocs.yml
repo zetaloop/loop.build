@@ -67,11 +67,13 @@ theme:
     - content.tabs.link # 内容选项卡同步切换
     - content.tooltips
 
-not_in_nav: |
-  symbols.md
+# not_in_nav: |
+#   xxx.md
 
 nav:
-  - 主页: index.md
+  - 主页:
+      - index.md
+      - symbols.md
   - 项目:
       - docs/index.md
       - PowerToys:
