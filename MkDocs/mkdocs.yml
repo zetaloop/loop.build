@@ -67,6 +67,10 @@ theme:
     - content.tabs.link # 内容选项卡同步切换
     - content.tooltips
 
+not_in_nav: |
+  symbols.md
+  sponsors.md
+
 nav:
   - 主页: index.md
   - 项目:
@@ -89,7 +93,9 @@ nav:
           - RustDesk Server: apps/server/rustdesk.md
   - 博客: blog/index.md
   - 动态: space/index.md
-  - 关于: about.md
+  - 关于:
+      - about/index.md
+      - 赞助: about/sponsors.md
 
 # extra:
 #   analytics:
@@ -118,6 +124,7 @@ nav:
 # Remember to add .min
 extra_css:
   - resources/css/extra.min.css
+  - resources/css/badge.min.css
 extra_javascript:
   - resources/js/darkmodefix.min.js
   - resources/js/repoinfo.min.js
@@ -132,6 +139,7 @@ extra_javascript:
 plugins:
   - loop_custom: # Custom plugin, directly inject functions
   - meta: #![INSIDERS]
+  - typeset: #![INSIDERS]
   - blog:
       authors_profiles: true
       blog_dir: blog
@@ -187,6 +195,9 @@ plugins:
       minify_css: true
       js_files: "resources/js/*.js"
       css_files: "resources/css/*.css"
+
+hooks:
+  - overrides/hooks/shortcodes.py
 
 markdown_extensions:
   - abbr

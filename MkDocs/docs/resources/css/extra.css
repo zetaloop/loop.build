@@ -365,3 +365,14 @@ pre {
 .twemoji {
   vertical-align: -12% !important;
 }
+
+
+
+/* 赞助按钮 */
+.md-button--sponsors {
+  --md-typeset-a-color: #e92063;
+  --md-accent-fg-color: #ff4281;
+  --md-accent-fg-color--transparent: #e920631a;
+  --md-primary-fg-color: #b31247;
+  color: #e91e63
+}
