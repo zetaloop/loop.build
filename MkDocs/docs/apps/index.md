@@ -3,7 +3,7 @@
 ## 在线服务
 <div class="grid cards" markdown>
 
--   **:simple-rustdesk: RustDesk** <!-- md:flag locked -->
+-   **:simple-rustdesk: RustDesk** <!-- md:locked -->
 
     RustDesk 远程控制软件的自建服务器
 

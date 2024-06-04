@@ -43,59 +43,19 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
         if type == "version":
             return _badge_for_version(args, page, files)
         elif type == "sponsors":
-            return _badge_for_sponsors(page, files)
-        elif type == "flag":
-            return flag(args, page, files)
-        elif type == "option":
-            return option(args)
-        elif type == "setting":
-            return setting(args)
-        elif type == "example":
-            return _badge_for_example(args, page, files)
-        elif type == "default":
-            if args == "none":
-                return _badge_for_default_none(page, files)
-            elif args == "computed":
-                return _badge_for_default_computed(page, files)
-            else:
-                return _badge_for_default(args, page, files)
+            return _badge_for_sponsors(args, page, files)
         elif type == "moved":
             return _badge_for_moved(args, page, files)
+        elif type == "experimental":
+            return _badge_for_experimental(args, page, files)
+        elif type == "locked":
+            return _badge_for_locked(args, page, files)
 
         # Otherwise, raise an error
         raise RuntimeError(f"Unknown shortcode: {type}")
 
     # Find and replace all external asset URLs in current page
     return re.sub(r"<!-- md:(\w+)(.*?) -->", replace, markdown, flags=re.I | re.M)
-
-
-# -----------------------------------------------------------------------------
-# Helper functions
-# -----------------------------------------------------------------------------
-
-
-# Create a flag of a specific type
-def flag(args: str, page: Page, files: Files):
-    type, *_ = args.split(" ", 1)
-    if type == "experimental":
-        return _badge_for_experimental(page, files)
-    elif type == "required":
-        return _badge_for_required(page, files)
-    elif type == "locked":
-        return _badge_for_locked(page, files)
-    raise RuntimeError(f"Unknown type: {type}")
-
-
-# Create a linkable option
-def option(type: str):
-    _, *_, name = re.split(r"[.:]", type)
-    return f"[`{name}`](#+{type}){{ #+{type} }}\n\n"
-
-
-# Create a linkable setting - @todo append them to the bottom of the page
-def setting(type: str):
-    _, *_, name = re.split(r"[.*]", type)
-    return f"`{name}` {{ #{type} }}\n\n[{type}]: #{type}\n\n"
 
 
 # -----------------------------------------------------------------------------
@@ -141,87 +101,31 @@ def _badge(icon: str, text: str = "", type: str = ""):
 
 
 # Create sponsors badge
-def _badge_for_sponsors(page: Page, files: Files):
+def _badge_for_sponsors(text: str, page: Page, files: Files):
     icon = "material-heart"
     href = _resolve_path("about/sponsor.md", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '仅限赞助商')", type="heart")
+    return _badge(icon=f"[:{icon}:]({href} '仅限赞助商')", type="heart", text=text)
 
 
 # Create badge for version
 def _badge_for_version(text: str, page: Page, files: Files):
     icon = "material-tag-outline"
     href = _resolve_path("about/symbols.md#version", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '最小版本')", text=f"{text}")
-
-
-# Create badge for example
-def _badge_for_example(text: str, page: Page, files: Files):
-    return "\n".join(
-        [
-            _badge_for_example_download(text, page, files),
-            _badge_for_example_view(text, page, files),
-        ]
-    )
-
-
-# Create badge for example view
-def _badge_for_example_view(text: str, page: Page, files: Files):
-    icon = "material-folder-eye"
-    href = f"https://mkdocs-material.github.io/examples/{text}/"
-    return _badge(icon=f"[:{icon}:]({href} 'View example')", type="right")
-
-
-# Create badge for example download
-def _badge_for_example_download(text: str, page: Page, files: Files):
-    icon = "material-folder-download"
-    href = f"https://mkdocs-material.github.io/examples/{text}.zip"
-    return _badge(
-        icon=f"[:{icon}:]({href} '下载示例')",
-        text=f"[`.zip`]({href})",
-        type="right",
-    )
-
-
-# Create badge for default value
-def _badge_for_default(text: str, page: Page, files: Files):
-    icon = "material-water"
-    href = _resolve_path("about/symbols.md#default", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '默认值')", text=text)
-
-
-# Create badge for empty default value
-def _badge_for_default_none(page: Page, files: Files):
-    icon = "material-water-outline"
-    href = _resolve_path("about/symbols.md#default", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '默认值为空')")
-
-
-# Create badge for computed default value
-def _badge_for_default_computed(page: Page, files: Files):
-    icon = "material-water-check"
-    href = _resolve_path("about/symbols.md#default", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '默认值动态计算')")
-
-
-# Create badge for required value flag
-def _badge_for_required(page: Page, files: Files):
-    icon = "material-alert"
-    href = _resolve_path("about/symbols.md#required", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '必填')")
+    return _badge(icon=f"[:{icon}:]({href} '版本')", text=text)
 
 
 # Create badge for experimental flag
-def _badge_for_experimental(page: Page, files: Files):
+def _badge_for_experimental(text: str, page: Page, files: Files):
     icon = "material-flask-outline"
     href = _resolve_path("about/symbols.md#experimental", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '实验性')")
+    return _badge(icon=f"[:{icon}:]({href} '实验性')", text=text)
 
 
 # Create badge for locked flag
-def _badge_for_locked(page: Page, files: Files):
+def _badge_for_locked(text: str, page: Page, files: Files):
     icon = "material-lock-outline"
     href = _resolve_path("about/symbols.md#locked", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '不公开')")
+    return _badge(icon=f"[:{icon}:]({href} '不公开')", text=text)
 
 
 # Create badge for moved flag
