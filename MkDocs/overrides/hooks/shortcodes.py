@@ -299,11 +299,11 @@ def _badge_for_multiple(page: Page, files: Files):
 def _badge_for_experimental(page: Page, files: Files):
     icon = "material-flask-outline"
     href = _resolve_path("symbols.md#experimental", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '实验性功能')")
+    return _badge(icon=f"[:{icon}:]({href} '实验性')")
 
 
 # Create badge for locked flag
 def _badge_for_locked(text: str, page: Page, files: Files):
     icon = "material-lock"
     href = _resolve_path("symbols.md#locked", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '不公开功能')", text=text)
+    return _badge(icon=f"[:{icon}:]({href} '不公开')", text=text)

@@ -86,4 +86,4 @@ to provide extended functionality, like for example support for versioning.
 
   [Insiders]: about/sponsor.md
 
-### <!-- md:locked --> - 不公开功能 { #locked }
+### <!-- md:locked --> - 不公开 { #locked }
