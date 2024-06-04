@@ -85,3 +85,5 @@ Besides plugins, there are some utilities that build on top of MkDocs in order
 to provide extended functionality, like for example support for versioning.
 
   [Insiders]: about/sponsor.md
+
+### <!-- md:locked --> - 不公开功能 { #locked }

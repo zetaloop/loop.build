@@ -70,6 +70,8 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
                 return _badge_for_default_computed(page, files)
             else:
                 return _badge_for_default(args, page, files)
+        elif type == "locked":
+            return _badge_for_locked(args, page, files)
 
         # Otherwise, raise an error
         raise RuntimeError(f"Unknown shortcode: {type}")
@@ -297,4 +299,11 @@ def _badge_for_multiple(page: Page, files: Files):
 def _badge_for_experimental(page: Page, files: Files):
     icon = "material-flask-outline"
     href = _resolve_path("symbols.md#experimental", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '实验性')")
+    return _badge(icon=f"[:{icon}:]({href} '实验性功能')")
+
+
+# Create badge for locked flag
+def _badge_for_locked(text: str, page: Page, files: Files):
+    icon = "material-lock"
+    href = _resolve_path("symbols.md#locked", page, files)
+    return _badge(icon=f"[:{icon}:]({href} '不公开功能')", text=text)
