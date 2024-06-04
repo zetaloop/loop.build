@@ -8,7 +8,7 @@ categories:
 links:
   - RustDesk 官网: https://rustdesk.com
 ---
-# Linux 如何搭建 RustDesk 服务器
+# 如何搭建 RustDesk 服务器
 有时候同学来找我解决电脑问题，我们身处异地，但各种远程连接软件又总是卡顿断联。怎么办呢？
 
 RustDesk 是一个开源的远程控制软件。它的服务端可以部署到我们自己的服务器上，远程控制更加流畅稳定，也不用担心数据泄露。我们这里就尝试在这台服务器上部署 RustDesk 的服务端。
