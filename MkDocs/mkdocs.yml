@@ -69,7 +69,6 @@ theme:
 
 not_in_nav: |
   symbols.md
-  sponsors.md
 
 nav:
   - 主页: index.md
@@ -95,7 +94,7 @@ nav:
   - 动态: space/index.md
   - 关于:
       - about/index.md
-      - 赞助: about/sponsors.md
+      - 赞助: about/sponsor.md
 
 # extra:
 #   analytics:

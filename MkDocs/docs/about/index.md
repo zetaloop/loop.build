@@ -3,4 +3,4 @@
 ## Zetaloop
 
  ---
-[赞助](sponsors.md){ .md-button .md-button--sponsors }
+[赞助](sponsor.md){ .md-button .md-button--sponsors }

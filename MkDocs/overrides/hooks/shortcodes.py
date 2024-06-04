@@ -156,7 +156,7 @@ def _badge(icon: str, text: str = "", type: str = ""):
 # Create sponsors badge
 def _badge_for_sponsors(page: Page, files: Files):
     icon = "material-heart"
-    href = _resolve_path("about/sponsors.md", page, files)
+    href = _resolve_path("about/sponsor.md", page, files)
     return _badge(icon=f"[:{icon}:]({href} '仅限赞助商')", type="heart")
 
 
