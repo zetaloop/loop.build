@@ -1,11 +1,21 @@
-{% extends "base.html" %} {% block extrahead %} {{ super() }}
+{% extends "base.html" %}
+
+<!-- Load jquery first -->
+{% block extrahead %} {{ super() }}
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-{% endblock %} {% block footer %} {{ super() }}
+{% endblock %}
+
+<!-- Footer -->
+{% block footer %} {{ super() }}
 <script>
   $(document).ready(function () {
     $("body").timeago();
     document$.subscribe(function () {
       $(".timeago").timeago("refresh");
+    });
+  });
+</script>
+
     });
   });
 </script>
