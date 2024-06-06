@@ -7,7 +7,7 @@
 ### <!-- [md:version](https://github.com/zetaloop "正式版 v1.2.3<br>发布日期 2020/20/20<br>点击下载") v1.2.3 --> – 版本 { #version data-toc-label="版本" }
 该项目的版本。
 
-### <!-- [md:autoupdate](href "通过软件包管理器统一更新") APT --> - 自动更新 { #autoupdate data-toc-label="自动更新" }
+### <!-- [md:autoupdate]("通过软件包管理器统一更新") APT --> - 自动更新 { #autoupdate data-toc-label="自动更新" }
 该项目可以自动更新。比如通过包管理器统一更新，或者自带更新检查与安装。
 
 ### <!-- md:moved --> - 已转移 { #moved data-toc-label="已转移" }
