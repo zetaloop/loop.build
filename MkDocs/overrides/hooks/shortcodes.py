@@ -38,24 +38,31 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
 
     # Replace callback
     def replace(match: Match):
-        type, args = match.groups()
-        args = args.strip()
-        if type == "version":
-            return _badge_for_version(args, page, files)
-        elif type == "sponsors":
-            return _badge_for_sponsors(args, page, files)
-        elif type == "moved":
-            return _badge_for_moved(args, page, files)
-        elif type == "experimental":
-            return _badge_for_experimental(args, page, files)
-        elif type == "locked":
-            return _badge_for_locked(args, page, files)
 
-        # Otherwise, raise an error
-        raise RuntimeError(f"Unknown shortcode: {type}")
+        # Find function by name str
+        def get_func(name: str):
+            if f"_badge_for_{name}" not in globals():
+                raise RuntimeError(f"Unknown shortcode: {name}")
+            return globals()[f"_badge_for_{name}"]
+
+        groups = match.groups()
+        if len(groups) == 2:
+            type, args = groups
+            text = args.strip()
+            return get_func(type)(text, page, files)
+        elif len(groups) == 3:
+            type, href, args = groups
+            text = args.strip()
+            return get_func(type)(text, page, files, href)
+        else:
+            raise RuntimeError(f"Invalid number of groups: {len(groups)}")
 
     # Find and replace all external asset URLs in current page
-    return re.sub(r"<!-- md:(\w+)(.*?) -->", replace, markdown, flags=re.I | re.M)
+    markdown = re.sub(r"<!-- md:(\w+)(.*?) -->", replace, markdown, flags=re.I | re.M)
+    markdown = re.sub(
+        r"<!-- \[md:(\w+)\]\((.*?)\)(.*?) -->", replace, markdown, flags=re.I | re.M
+    )
+    return markdown
 
 
 # -----------------------------------------------------------------------------
@@ -100,36 +107,73 @@ def _badge(icon: str, text: str = "", type: str = ""):
     )
 
 
-# Create sponsors badge
-def _badge_for_sponsors(text: str, page: Page, files: Files):
+def _badge_for_sponsors(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
     icon = "material-heart"
-    href = _resolve_path("about/sponsor.md", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '仅限赞助商')", type="heart", text=text)
+    link = "about/sponsor.md"
+    href = href or _resolve_path(link, page, files) + " '仅限赞助商'"
+    return _badge(icon=f"[:{icon}:]({href})", type="heart", text=text)
 
 
-# Create badge for version
-def _badge_for_version(text: str, page: Page, files: Files):
+def _badge_for_version(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
     icon = "material-tag-outline"
-    href = _resolve_path("about/symbols.md#version", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '版本')", text=text)
+    link = "about/symbols.md#version"
+    href = href or _resolve_path(link, page, files) + " '版本'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
 
 
-# Create badge for experimental flag
-def _badge_for_experimental(text: str, page: Page, files: Files):
+def _badge_for_experimental(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
     icon = "material-flask-outline"
-    href = _resolve_path("about/symbols.md#experimental", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '实验性')", text=text)
+    link = "about/symbols.md#experimental"
+    href = href or _resolve_path(link, page, files) + " '实验性'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
 
 
-# Create badge for locked flag
-def _badge_for_locked(text: str, page: Page, files: Files):
+def _badge_for_locked(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
     icon = "material-lock-outline"
-    href = _resolve_path("about/symbols.md#locked", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '不公开')", text=text)
+    link = "about/symbols.md#locked"
+    href = href or _resolve_path(link, page, files) + " '不公开'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
 
 
-# Create badge for moved flag
-def _badge_for_moved(text: str, page: Page, files: Files):
+def _badge_for_moved(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
     icon = "material-arrow-u-right-top"
-    href = _resolve_path("about/symbols.md#moved", page, files)
-    return _badge(icon=f"[:{icon}:]({href} '已转移')", text=text)
+    link = "about/symbols.md#moved"
+    href = href or _resolve_path(link, page, files) + " '已转移'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
+
+
+def _badge_for_autoupdate(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
+    icon = "material-autorenew"
+    link = "about/symbols.md#autoupdate"
+    href = href or _resolve_path(link, page, files) + " '自动更新'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
