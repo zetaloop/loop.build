@@ -7,7 +7,7 @@
 
     RustDesk 远程控制软件的自建服务器
 
-    [:octicons-arrow-right-24: 文档]()
+    [:octicons-arrow-right-24: 文档](server/rustdesk.md)
 
 -   **:material-sticker-outline: 服务器备忘录**
 
