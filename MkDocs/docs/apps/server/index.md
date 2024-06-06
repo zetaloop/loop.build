@@ -18,16 +18,19 @@
 ### [UFW](ufw.md)
 关掉防火墙
 
+### [Node.js](node.md)
+Node.js 运行环境
+
 ### [Nginx](nginx.md)
 基础 Web 服务器
 
 ### [Docker](docker.md)
 容器引擎，用于模块化部署大多数的服务
 
-### [Node.js](node.md)
-Node.js 运行环境
-
  ---
+
+### [Watchtower](watchtower.md)
+自动更新 Docker 容器
 
 ### [RustDesk 服务器](rustdesk.md)
 远程控制软件 RustDesk 的自托管服务器

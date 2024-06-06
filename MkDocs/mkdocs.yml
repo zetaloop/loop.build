@@ -87,9 +87,10 @@ nav:
           - 日常维护: apps/server/maintain.md
           - SSH: apps/server/ssh.md
           - UFW: apps/server/ufw.md
+          - Node.js: apps/server/node.md
           - Nginx: apps/server/nginx.md
           - Docker: apps/server/docker.md
-          - Node.js: apps/server/node.md
+          - Watchtower: apps/server/watchtower.md
           - RustDesk Server: apps/server/rustdesk.md
   - 博客: blog/index.md
   - 动态: space/index.md
