@@ -9,7 +9,7 @@ categories:
   - Hack
 ---
 
-# IDLE 的逆天 Bug
+# IDLE 的奇怪 Bug
 
 ## 前言
 
