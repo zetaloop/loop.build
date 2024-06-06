@@ -1,4 +1,4 @@
-# <!-- md:sponsors --> 赞助
+# <!-- [md:sponsors](symbols.md "见附录") --> 赞助
 
 谢谢！目前没有赞助计划。
 
