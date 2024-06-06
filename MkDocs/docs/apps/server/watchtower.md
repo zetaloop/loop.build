@@ -4,6 +4,7 @@
 自动更新 Docker 容器。
 
 ## 创建 Docker 配置文件
+来源：[Watchtower](https://containrrr.dev/watchtower/)、[RustDesk](https://rustdesk.com/docs/en/self-host/rustdesk-server-oss/ubuntu-server/docker/)
 ```yaml title="~/apps/watchtower/docker-compose.yml"
 version: "3"
 services:
