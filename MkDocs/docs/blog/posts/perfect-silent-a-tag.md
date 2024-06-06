@@ -50,6 +50,6 @@ document.querySelectorAll(".silent").forEach(link => {
 
 ## 更多实例
 
-#### Software <!-- [md:version]("2020/20/20 v1.2.3<br>增加了三个特性") v1.2.3 --> <!-- [md:autoupdate]("自动更新") --> { data-toc-label="Zetaloop" }
+#### Software <!-- [md:version]("2020/20/20 v1.2.3<br>增加了三个特性") v1.2.3 --> <!-- [md:autoupdate]("自动更新") --> { data-toc-label="" }
 
 <code>&nbsp;<!-- [md:locked]("被骗啦") -->&nbsp;滑动解锁->&nbsp;</code>

@@ -2,9 +2,9 @@
 date:
   created: 2024-06-03 03:31:47
 categories:
+  - 服务
   - RustDesk
   - 远程控制
-  - 服务
 links:
   - RustDesk 官网: https://rustdesk.com
 ---
