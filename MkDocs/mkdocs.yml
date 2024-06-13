@@ -129,6 +129,7 @@ extra_css:
   - resources/css/badge.min.css
 extra_javascript:
   - resources/js/darkmodefix.min.js
+  - resources/js/tabsfix.min.js
   - resources/js/repoinfo.min.js
   # - resources/js/feedback.min.js
   - resources/js/timeago.min.js
