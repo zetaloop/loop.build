@@ -36,6 +36,10 @@ document$.subscribe(function () {
                     tabs.classList.remove("fix-tabs-fade-in");
                     void tabs.offsetWidth;
                     tabs.classList.add("fix-tabs-fade-in");
+                    tabs.style.backgroundColor = "transparent";
+                    setTimeout(function () {
+                        tabs.style.backgroundColor = "";
+                    }, 150);
                 }
 
                 lastScheme = newScheme;
