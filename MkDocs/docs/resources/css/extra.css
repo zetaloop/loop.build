@@ -361,7 +361,9 @@ pre {
 
 /* 修复文章宽度问题 */
 .md-content__inner {
-  width: 100%
+  width: -mox-available;
+  width: -webkit-fill-available;
+  width: fill-available;
 }
 
 
