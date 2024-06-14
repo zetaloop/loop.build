@@ -3,9 +3,18 @@ document$.subscribe(() => {
     const navContents = document.querySelector(".md-tabs__list");
     let lastScrollY = window.scrollY;
 
-    function handleScroll() {
+    // check window.tabsFixer
+    const isDuplicate = window.tabsFixer !== undefined;
+
+    function tabsFixer() {
         const currentScrollY = window.scrollY;
         const navHeight = navTabs.offsetHeight;
+        if (navHeight === 0) {
+            console.error(
+                "[tabsfix.js] navHeight is 0, md-tabs may not loaded yet."
+            );
+            return;
+        }
 
         if (currentScrollY > navHeight / 2) {
             // Y > navHeight /2 -> force hide
@@ -33,6 +42,12 @@ document$.subscribe(() => {
         }
 
         lastScrollY = currentScrollY;
+    }
+    window.tabsFixer = tabsFixer;
+    if (isDuplicate) return;
+
+    function handleScroll() {
+        window.tabsFixer();
     }
 
     window.addEventListener("scroll", handleScroll);
