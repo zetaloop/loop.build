@@ -4,39 +4,32 @@
 
 ```mermaid
 flowchart LR
-    server[服务器] <---->|自签名 https 证书\nmTLS 仅允许 Cloudflare 访问| cloudflare[Cloudflare CDN]
+    server[服务器] <---->|mTLS 仅允许 Cloudflare 访问| cloudflare[Cloudflare CDN]
     cloudflare <---->|Cloudflare 的自动 https| user[用户]
 ```
 <center>**图1** 外部结构</center>
 ```mermaid
 flowchart LR
-    nginx[Nginx]
-    loop_main[loop.build]
+    firewall[防火墙]
+    nginx[Nginx 反代]
     nginx_redirect[<b>www</b>.loop.build 🡒 loop.build]
-    docs[./docs 文档]
-    apps[./apps 服务]
-    blog[./blog 博客]
-    space[./space 动态]
-    about[./about 关于]
-    redirector[子域名短网址跳转服务（举例）\n<b>docs</b>.loop.build 🡒 loop.build/docs\n<b>bilibili</b>.loop.build 🡒 space.bilibili.com/99583527]
-    other_tools[其他服务与工具\n由 Nginx 代理或直接访问\n（举例）]
-    gh-mirror[GitHub 镜像]
-    gitea[自建 git]
-    rustdesk-server[RustDesk 远程桌面服务器]
+    docker["Docker 容器\n<b>loop.build</b> 🡒 localhost:44001 (mkdocs)\n<b>github</b>.loop.build 🡒 localhost:44002 (gh-mirror)\n<b>rustdesk</b>.loop.build 🡒 localhost (rustdesk-server)"]
+    subgraph docker-compo[由 Coolify 管理]
+        direction LR
+        port[localhost\n端口映射]
+        port --- mkdocs[MkDocs 静态站点\n\n./docs 文档\n./apps 服务\n./blog 博客\n./space 动态\n./about 关于]
+        port --- gh-mirror[gh-mirror\nGitHub 镜像]
+        port --- gitea[gitea\n自建 git]
+        port --- rustdesk-server[rustdesk-server\nRustDesk 远程桌面服务器]
+    end
+    coolify[Coolify 管理面板\n<b>admin</b>.loop.build 🡒 localhost:8080]
+    redirector[子域名短网址跳转服务\n<b>docs</b>.loop.build 🡒 loop.build/docs\n<b>bilibili</b>.loop.build 🡒 space.bilibili.com/99583527]
 
-    nginx ---|MkDocs 静态主站| loop_main
-    nginx ---|301| nginx_redirect
-    loop_main --- docs
-    loop_main --- apps
-    loop_main --- blog
-    loop_main --- space
-    loop_main --- about
-    nginx ---|其他子域| redirector
-    nginx ---|其他部署| other_tools
-    other_tools ---|gh-mirror| gh-mirror
-    other_tools ---|gitea| gitea
-    other_tools ---|rustdesk-server| rustdesk-server
+    firewall ---|80<br>443| nginx
+    nginx ---|301 重定向| nginx_redirect
+    nginx ---|模块化后端| docker
+    docker --- port
+    nginx ---|管理面板| coolify
+    nginx ---|子域短链| redirector
 ```
 <center>**图2** 内部结构</center>
-
-<!--!!! 下一步：修改服务器架构，为保证单页面应用的体验，不再区分 docs 等子站，直接访问子站会跳转到主站 -->
