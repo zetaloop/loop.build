@@ -1,3 +1,3 @@
 echo ". use_venv.sh"
 
-source venv/Scripts/activate
+source venv/bin/activate
