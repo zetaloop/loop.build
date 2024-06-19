@@ -5,4 +5,3 @@ echo "(venv)> mkdocs build"
 mkdocs build
 echo
 echo -e "✅ Build complete -> ./site/"
-
