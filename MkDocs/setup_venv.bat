@@ -12,6 +12,12 @@ if "%MATERIAL_INSIDERS_GH_TOKEN%"=="" (
 )
 
 py -m venv venv
+if not exist venv\Scripts\activate.bat (
+  echo [ERROR] venv failed to create
+  pause
+  exit
+)
+
 call venv\Scripts\activate.bat
 pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
