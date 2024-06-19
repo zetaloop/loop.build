@@ -9,6 +9,7 @@ if [ -z "$MATERIAL_INSIDERS_GH_TOKEN" ]; then
   echo "[WARNING] MATERIAL_INSIDERS_GH_TOKEN is empty"
 else
   pip install git+https://${MATERIAL_INSIDERS_GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+fi
 cd ../loop_custom
 bash INSTALL.sh
 exit
