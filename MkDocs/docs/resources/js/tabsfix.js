@@ -1,14 +1,18 @@
 document$.subscribe(() => {
-    const navTabs = document.querySelector(".md-tabs");
-    const navContents = document.querySelector(".md-tabs__list");
+    const $navHeader = $(".md-header");
+    const $navTabs = $(".md-tabs");
+    const $navContents = $(".md-tabs__list");
+    var $navBackground = $(".md-header-bg");
     let lastScrollY = window.scrollY;
 
-    // check window.tabsFixer
-    const isDuplicate = window.tabsFixer !== undefined;
+    // check handlers exist
+    const isDuplicate = window.tabsEffectHandler !== undefined;
 
-    function tabsFixer() {
+    function tabsEffectHandler() {
         const currentScrollY = window.scrollY;
-        const navHeight = navTabs.offsetHeight;
+        const navHeight = $navTabs.height();
+        // navTabs.height == navHeader.height
+
         if (navHeight === 0) {
             console.error(
                 "[tabsfix.js] navHeight is 0, md-tabs may not loaded yet."
@@ -16,41 +20,84 @@ document$.subscribe(() => {
             return;
         }
 
+        if ($navBackground.length === 0) {
+            $navHeader.before(
+                $(
+                    '<div class="md-header-bg-frame">' +
+                        '<div class="md-header-bg theme-changed-fast"></div>' +
+                        "</div>"
+                )
+            );
+            $navBackground = $(".md-header-bg");
+        }
+
+        if ($navTabs.css("display") === "none") {
+            // Mobile view, ignore everything
+            if ($navBackground.css("height") !== navHeight + "px") {
+                $navBackground.css("height", navHeight + "px");
+            }
+            return;
+        }
+
         if (currentScrollY > navHeight / 2) {
-            // Y > navHeight /2 -> force hide
-            if (navContents.style.visibility === "")
-                navContents.style.visibility = "collapse";
+            // Y > navHeight/2 -> force hide
+            if ($navContents.css("visibility") !== "collapse") {
+                $navContents.css("visibility", "collapse");
+            }
+            if (!$navTabs.attr("hidden")) {
+                $navTabs.attr("hidden", "");
+            }
         } else if (currentScrollY > navHeight / 4) {
-            // navHeight/4 < Y <= navHeight/2 -> show/hide based on scroll direction
-            if (navContents.style.visibility === "collapse")
-                navContents.style.visibility = "";
+            // navHeight/4 < Y <= navHeight/2 -> show/hide based on direction
+            if ($navContents.css("visibility") === "collapse") {
+                $navContents.css("visibility", "");
+            }
             if (currentScrollY > lastScrollY) {
                 // Scroll down to hide
-                if (!navTabs.hasAttribute("hidden"))
-                    navTabs.setAttribute("hidden", "");
+                if (!$navTabs.attr("hidden")) {
+                    $navTabs.attr("hidden", "");
+                }
             } else if (currentScrollY < lastScrollY) {
                 // Scroll up to show
-                if (navTabs.hasAttribute("hidden"))
-                    navTabs.removeAttribute("hidden");
+                if ($navTabs.attr("hidden")) {
+                    $navTabs.removeAttr("hidden");
+                }
             }
         } else {
-            // Y <= navHeight / 4 -> force show
-            if (navContents.style.visibility === "collapse")
-                navContents.style.visibility = "";
-            if (navTabs.hasAttribute("hidden"))
-                navTabs.removeAttribute("hidden");
+            // Y <= navHeight/4 -> force show
+            if ($navContents.css("visibility") === "collapse") {
+                $navContents.css("visibility", "");
+            }
+            if ($navTabs.attr("hidden")) {
+                $navTabs.removeAttr("hidden");
+            }
+        }
+
+        if (currentScrollY > navHeight) {
+            // Y > navHeight -> half height, tabs hidden
+            if ($navBackground.css("height") !== navHeight + "px") {
+                $navBackground.css("height", navHeight + "px");
+            }
+        } else {
+            // Y <= navHeight -> hiding animation
+            var bgHeight =
+                navHeight + $navTabs.offset().top - $navHeader.offset().top;
+            if ($navBackground.css("height") !== bgHeight + "px") {
+                $navBackground.css("height", bgHeight + "px");
+            }
         }
 
         lastScrollY = currentScrollY;
     }
-    window.tabsFixer = tabsFixer;
+    window.tabsEffectHandler = tabsEffectHandler;
     if (isDuplicate) return;
 
     function handleScroll() {
-        window.tabsFixer();
+        window.tabsEffectHandler();
     }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll); // handle bars hide and show
+    window.addEventListener("resize", handleScroll); // handle background height
 
     handleScroll();
 
@@ -66,7 +113,7 @@ document$.subscribe(() => {
         });
     });
 
-    observer.observe(navTabs, {
+    observer.observe($navTabs[0], {
         attributes: true,
         attributeFilter: ["hidden"],
     });

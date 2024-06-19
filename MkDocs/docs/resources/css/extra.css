@@ -155,7 +155,7 @@ pre {
 
 .md-tabs {
   /* box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003; */
-  box-shadow: 0 .2rem .2rem var(--header-shadow-color);
+  /* box-shadow: 0 .2rem .2rem var(--header-shadow-color); -> New Tabs Bg */
   position: sticky;
   top: 0;
 }
@@ -164,14 +164,51 @@ pre {
 /* 顶栏新版亚克力样式 */
 [data-md-color-scheme=default] {
   --header-color: #000;
-  --header-border-color: rgba(0, 0, 0, 0.3);
+  --header-bg-color: rgba(240, 240, 240, 0.3);
+  --header-border-color: rgba(200, 200, 200, 0.7);
   --header-shadow-color: rgba(200, 200, 200, 0.3);
 }
 
 [data-md-color-scheme=slate] {
   --header-color: #fff;
-  --header-border-color: rgba(255, 255, 255, 0.3);
-  --header-shadow-color: rgba(0, 0, 0, 0.3);
+  --header-bg-color: rgba(30, 30, 30, 0.3);
+  --header-border-color: rgba(150, 150, 150, 0.7);
+  --header-shadow-color: rgba(100, 100, 100, 0.2);
+}
+
+@keyframes header-bg-fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.md-header-bg-frame {
+  /* 半透明背景的外框，应付布局器用的 */
+  height: 0;
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  overflow: visible;
+  /* 神金，为了防止 sticky 的背景层和 header 一起排列，
+  只好塞个空的 div 再给他 overflow 下来 */
+}
+
+.md-header-bg {
+  /* 半透明背景，见 tabsfix.js，模糊滤镜见 main.html */
+  background: var(--header-bg-color);
+  backdrop-filter: blur(7px);
+  width: 100%;
+  border-top: 1px solid var(--header-border-color);
+  border-bottom: 1px solid var(--header-border-color);
+  border-radius: 10px;
+  box-shadow: 0 .2rem .2rem var(--header-shadow-color);
+  animation: header-bg-fadein 0.3s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
 @media screen and (min-width: 76.25em)
@@ -180,16 +217,16 @@ pre {
   .md-header {
     color: var(--header-color);
     background-color: unset;
-    border-top: 1px solid var(--header-border-color);
+    /* border-top: 1px solid var(--header-border-color); */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
 
   .md-tabs {
     color: var(--header-color);
-    background-color: var(--md-default-bg-color--lighter);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--header-border-color) !important;
+    background-color: unset;
+    /* backdrop-filter: url(#xblur); */
+    /* border-bottom: 1px solid var(--header-border-color) !important; */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -201,9 +238,9 @@ pre {
   .md-header {
     color: var(--header-color);
     background-color: unset;
-    backdrop-filter: blur(20px);
-    border-top: 1px solid var(--header-border-color);
-    border-bottom: 1px solid var(--header-border-color);
+    /* backdrop-filter: url(#xblur); */
+    /* border-top: 1px solid var(--header-border-color);
+    border-bottom: 1px solid var(--header-border-color); */
     border-radius: 10px;
   }
 
@@ -220,13 +257,12 @@ pre {
 
 /* 顺滑亮暗切换动画 */
 * {
-  transition-property: background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter;
+  transition-property: background, background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
 }
 
 [data-md-color-scheme=default] .md-logo {
-  /* fill: var(--md-primary-fg-color); */
   filter: invert(100%);
 }
 
@@ -257,7 +293,7 @@ pre {
   background-color: unset !important;
 }
 
-@keyframes fix-theme-fade-in {
+@keyframes theme-changed {
   from {
     opacity: 0;
   }
@@ -267,28 +303,23 @@ pre {
   }
 }
 
-.fix-theme-fade-in {
+.theme-changed {
   opacity: 0;
-  animation: fix-theme-fade-in .5s cubic-bezier(.4, 0, .2, 1) forwards;
+  animation: theme-changed 1s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
-@keyframes fix-tabs-fade-in {
-  from {
-    box-shadow: none;
-  }
-
-  to {
-    box-shadow: 0 .2rem .2rem var(--header-shadow-color);
-  }
-}
-
-.fix-tabs-fade-in {
-  box-shadow: none;
-  animation: fix-tabs-fade-in 1s cubic-bezier(.4, 0, .2, 1) forwards;
+.theme-changed-fast {
+  opacity: 0;
+  animation: theme-changed .3s forwards;
 }
 
 .giscus-frame {
   transition: opacity .7s ease-in, opacity 1s ease-out;
+}
+
+body {
+  background-color: transparent;
+  transition: background-color .3s ease;
 }
 
 
@@ -389,4 +420,37 @@ pre {
   --md-accent-fg-color--transparent: #e920631a;
   --md-primary-fg-color: #b31247;
   color: #e91e63
+}
+
+
+
+/* Mermaid 图表动画 */
+@keyframes mermaid-fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+pre.mermaid {
+  overflow: hidden;
+  animation: mermaid-fadeOut 2s ease forwards;
+}
+
+@keyframes mermaid-fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+div.mermaid {
+  overflow: hidden;
+  animation: mermaid-fadeIn 1s ease forwards;
 }
