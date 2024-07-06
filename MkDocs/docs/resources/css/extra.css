@@ -399,13 +399,6 @@ body {
 
 
 
-/* Mermaid 图表居中 */
-.mermaid {
-  text-align: center;
-}
-
-
-
 /* 表情居中 */
 .twemoji {
   vertical-align: -12% !important;
@@ -425,21 +418,6 @@ body {
 
 
 /* Mermaid 图表动画 */
-@keyframes mermaid-fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-pre.mermaid {
-  overflow: hidden;
-  animation: mermaid-fadeOut 2s ease forwards;
-}
-
 @keyframes mermaid-fadeIn {
   from {
     opacity: 0;
@@ -451,6 +429,7 @@ pre.mermaid {
 }
 
 div.mermaid {
+  text-align: center;
   overflow: hidden;
   animation: mermaid-fadeIn 1s ease forwards;
 }
