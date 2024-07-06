@@ -19,7 +19,7 @@ if not exist venv\Scripts\activate.bat (
 )
 
 call venv\Scripts\activate.bat
-pip install -U pip setuptools wheel
+py -m pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin
 if not "%MATERIAL_INSIDERS_GH_TOKEN%" == "" (

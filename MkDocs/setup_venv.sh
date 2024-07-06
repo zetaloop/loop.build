@@ -13,7 +13,7 @@ fi
 
 python3 -m venv venv
 source venv/bin/activate
-pip install -U pip setuptools wheel
+python3 -m pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin
 if [ -n "$MATERIAL_INSIDERS_GH_TOKEN" ]; then
