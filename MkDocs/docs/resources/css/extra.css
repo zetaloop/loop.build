@@ -433,3 +433,10 @@ div.mermaid {
   overflow: hidden;
   animation: mermaid-fadeIn 1s ease forwards;
 }
+
+
+
+/* 修复移动端侧栏项大小不一致 */
+.md-ellipsis .md-typeset {
+  font-size: .8rem;
+}
