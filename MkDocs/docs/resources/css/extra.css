@@ -442,3 +442,14 @@ div.mermaid {
 .md-ellipsis .md-typeset {
   font-size: .8rem;
 }
+
+
+
+/* 优化对话框颜色 */
+.md-dialog {
+  background-color: var(--md-default-bg-color);
+}
+
+.md-dialog__inner {
+  color: var(--md-typeset-color);
+}
