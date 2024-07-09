@@ -62,7 +62,7 @@ document$.subscribe(function () {
                     document.body
                 ).getPropertyValue("--md-default-bg-color");
 
-                $container = $(".md-main");
+                $container = $(".md-content");
                 $container.removeClass("theme-changed");
                 $container.css("opacity", 0);
                 setTimeout(() => {
@@ -73,19 +73,24 @@ document$.subscribe(function () {
                 $header = $(".md-header");
                 $headerBg = $(".md-header-bg");
                 $headerTabs = $(".md-tabs");
+                $sidebar = $(".md-sidebar");
                 $header.removeClass("theme-changed-fast");
                 $headerBg.removeClass("theme-changed-fast");
                 $headerTabs.removeClass("theme-changed-fast");
+                $sidebar.removeClass("theme-changed-fast");
                 $header.css("opacity", 0);
                 $headerBg.css("opacity", 0);
                 $headerTabs.css("opacity", 0);
+                $sidebar.css("opacity", 0);
                 setTimeout(() => {
                     $header.addClass("theme-changed-fast");
                     $headerBg.addClass("theme-changed-fast");
                     $headerTabs.addClass("theme-changed-fast");
+                    $sidebar.addClass("theme-changed-fast");
                     $header.css("opacity", "");
                     $headerBg.css("opacity", "");
                     $headerTabs.css("opacity", "");
+                    $sidebar.css("opacity", "");
                 }, 0);
 
                 lastScheme = newScheme;
