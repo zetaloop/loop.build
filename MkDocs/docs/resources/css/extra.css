@@ -246,7 +246,7 @@ pre {
     border-radius: 10px;
   }
 
-  .md-nav__title[for=__drawer] {
+  .md-nav--primary .md-nav__title {
     background-color: unset !important;
   }
 
