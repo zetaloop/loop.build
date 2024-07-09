@@ -202,7 +202,7 @@ pre {
 }
 
 .md-header-bg {
-  /* 半透明背景，见 tabsfix.js，模糊滤镜见 main.html */
+  /* 半透明背景，见 tabsfix.js */
   background: var(--header-bg-color);
   backdrop-filter: blur(7px);
   width: 100%;
