@@ -128,6 +128,8 @@ pre {
   /* Code color shades */
   --md-code-fg-color: hsla(var(--md-hue), var(--md-sat-ratio), 86%, 0.82);
   --md-code-bg-color: hsla(var(--md-hue), var(--md-sat-ratio), 9%, 1);
+  --md-code-bg-color--light: hsla(var(--md-hue), var(--md-sat-ratio), 9%, 0.9);
+  --md-code-bg-color--lighter: hsla(var(--md-hue), var(--md-sat-ratio), 9%, 0.54);
   /* Typeset `kbd` color shades */
   --md-typeset-kbd-color: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.12);
   --md-typeset-kbd-accent-color: hsla(var(--md-hue), var(--md-sat-ratio), 90%, 0.2);
