@@ -246,6 +246,16 @@ pre {
     border-radius: 10px;
   }
 
+  .md-sidebar {
+    background-color: unset !important;
+  }
+
+  .md-sidebar__scrollwrap {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 1px solid var(--header-border-color);
+  }
+
   .md-nav--primary .md-nav__title {
     background-color: unset !important;
   }
