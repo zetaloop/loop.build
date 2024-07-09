@@ -463,3 +463,10 @@ div.mermaid {
 .md-dialog__inner {
   color: var(--md-typeset-color);
 }
+
+
+
+/* 头像适配 */
+.md-author {
+  border-radius: 0 !important;
+}
