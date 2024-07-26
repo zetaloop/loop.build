@@ -7,7 +7,7 @@ if exist venv (
 )
 
 if "%MATERIAL_INSIDERS_GH_TOKEN%"=="" (
-  echo [WARNING] MATERIAL_INSIDERS_GH_TOKEN is empty
+  echo [WARNING] MATERIAL_INSIDERS_GH_TOKEN is empty, using public version instead
   pause
 )
 
@@ -23,7 +23,8 @@ py -m pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin
 if not "%MATERIAL_INSIDERS_GH_TOKEN%" == "" (
-  pip install git+https://%MATERIAL_INSIDERS_GH_TOKEN%@github.com/squidfunk/mkdocs-material-insiders.git
+  @REM pip install git+https://%MATERIAL_INSIDERS_GH_TOKEN%@github.com/squidfunk/mkdocs-material-insiders.git
+  pip install git+https://%MATERIAL_INSIDERS_GH_TOKEN%@github.com/zetasp/mkdocs-material-insiders.git
 )
 cd ..\loop_custom
 call INSTALL.bat
