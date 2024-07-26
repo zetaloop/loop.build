@@ -58,10 +58,6 @@ document$.subscribe(function () {
                 //     }, 1);
                 // }, 300);
 
-                document.body.style.backgroundColor = getComputedStyle(
-                    document.body
-                ).getPropertyValue("--md-default-bg-color");
-
                 $container = $(".md-content");
                 $container.removeClass("theme-changed");
                 $container.css("opacity", 0);
@@ -103,8 +99,4 @@ document$.subscribe(function () {
         attributes: true,
         attributeFilter: ["data-md-color-scheme"],
     });
-
-    document.body.style.backgroundColor = getComputedStyle(
-        document.body
-    ).getPropertyValue("--md-default-bg-color");
 });
