@@ -128,14 +128,14 @@ extra_css:
   - resources/css/extra.min.css
   - resources/css/badge.min.css
 extra_javascript:
-  - resources/js/darkmodefix.min.js
-  - resources/js/tabsfix.min.js
-  - resources/js/repoinfo.min.js
-  # - resources/js/feedback.min.js
-  - resources/js/timeago.min.js
-  - resources/js/tablesort.min.js
-  - resources/js/clearhref.min.js
-  - resources/js/mathjax.min.js
+  - resources/js/anim.min.js
+  - resources/js/betterTabs.min.js
+  - resources/js/betterHref.min.js
+  - resources/js/repoInfoBar.min.js
+  # - resources/js/_feedback.min.js
+  - resources/js/_timeago.min.js
+  - resources/js/_mathjax.min.js
+  - resources/js/_tablesort.min.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
