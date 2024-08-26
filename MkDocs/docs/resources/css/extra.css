@@ -493,6 +493,10 @@ div.mermaid {
 /* 优化对话框颜色 */
 .md-dialog {
   background-color: var(--md-default-bg-color);
+  border-top: 1px solid var(--header-border-color);
+  border-bottom: 1px solid var(--header-border-color);
+  border-radius: 10px;
+  box-shadow: 0 .2rem .2rem var(--header-shadow-color);
 }
 
 .md-dialog__inner {
