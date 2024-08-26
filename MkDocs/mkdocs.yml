@@ -130,7 +130,7 @@ extra_css:
 extra_javascript:
   - resources/js/anim.min.js
   - resources/js/betterTabs.min.js
-  - resources/js/betterHref.min.js
+  - resources/js/betterLinks.min.js
   - resources/js/repoInfoBar.min.js
   # - resources/js/_feedback.min.js
   - resources/js/_timeago.min.js
