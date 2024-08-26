@@ -412,6 +412,14 @@ body {
 
 
 
+/* 修复博客目录字体不一致 */
+.md-nav__link .md-ellipsis .md-typeset {
+  font-weight: 700;
+  font-size: .7rem;
+}
+
+
+
 /* 表情居中 */
 .twemoji {
   vertical-align: -12% !important;
