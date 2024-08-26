@@ -45,7 +45,6 @@ document$.subscribe(function () {
                 break;
 
             case "full":
-                console.log("full");
                 anim($container, "theme-changed");
                 anim($sidebar, "theme-changed-fast");
                 anim($header, "theme-changed-fast");
