@@ -3,94 +3,66 @@
 document$.subscribe(function () {
     var lastScheme = document.body.getAttribute("data-md-color-scheme");
     var lastPrimary = document.body.getAttribute("data-md-color-primary");
-    // var lock = false;
+
+    function anim($el, cls) {
+        $el.css("opacity", 0).removeClass(cls);
+        setTimeout(() => {
+            $el.css("opacity", "")
+                .addClass(cls)
+                .on("animationend", function () {
+                    $el.removeClass(cls);
+                });
+        });
+    }
+
+    function handlePageAnim(force = false, mode = "full") {
+        var newScheme = document.body.getAttribute("data-md-color-scheme");
+        var newPrimary = document.body.getAttribute("data-md-color-primary");
+
+        if (!force && lastScheme == newScheme) return;
+        lastScheme = newScheme;
+        lastPrimary = newPrimary;
+
+        $container = $(".md-content");
+        $header = $(".md-header");
+        $headerBg = $(".md-header-bg");
+        $headerBgFrame = $(".md-header-bg-frame");
+        $headerTabs = $(".md-tabs");
+        $sidebar = $(".md-sidebar");
+        switch (mode) {
+            case "init":
+                anim(
+                    $(
+                        ".md-header__inner > *:not(.md-header__title):not(.md-logo)"
+                    ),
+                    "header-slidein"
+                );
+                anim($headerTabs, "header-slidein");
+                anim($sidebar, "header-slidein");
+                anim($container, "header-page-init");
+                anim($headerBg, "header-bg-init");
+                anim($headerBgFrame, "header-slidein");
+                break;
+
+            case "full":
+                console.log("full");
+                anim($container, "theme-changed");
+                anim($sidebar, "theme-changed-fast");
+                anim($header, "theme-changed-fast");
+                anim($headerTabs, "theme-changed-fast");
+                anim($headerBg, "theme-changed-fast");
+                break;
+
+            case "page":
+                anim($container, "page-changed");
+                break;
+        }
+    }
 
     var observer = new MutationObserver(function (mutations) {
-        // if (lock) return;
         mutations.forEach(function (mutation) {
             if (mutation.attributeName === "data-md-color-scheme") {
-                newScheme = document.body.getAttribute("data-md-color-scheme");
-                newPrimary = document.body.getAttribute(
-                    "data-md-color-primary"
-                );
-                if (lastScheme == newScheme) return;
-
-                /*console.log("Detected data-md-color-scheme change:", newScheme);
-                var elements = Array.from(
-                    eval(
-                        'document.querySelectorAll(".highlighttable, code, .md-typeset__table, .mermaid, .md-header-bg")'
-                    ) // If you dont use eval, mermaid will not be detected
-                );
-                var filteredElements = elements.filter(function (el) {
-                    // Check if the element is not a child of another element in the list
-                    return !elements.some(function (parent) {
-                        return parent !== el && parent.contains(el);
-                    });
-                });
-
-                filteredElements.forEach(function (el) {
-                    try {
-                        el.classList.remove("theme-changed");
-                        void el.offsetWidth;
-                        el.classList.add("theme-changed");
-                        // console.log("Fixed theme for element:", el);
-                    } catch (e) {}
-                });*/
-
-                // lock = true;
-                // document.body.setAttribute("data-md-color-scheme", lastScheme);
-                // document.body.setAttribute(
-                //     "data-md-color-primary",
-                //     lastPrimary
-                // );
-                // setTimeout(() => {
-                //     document.body.setAttribute(
-                //         "data-md-color-scheme",
-                //         newScheme
-                //     );
-                //     document.body.setAttribute(
-                //         "data-md-color-primary",
-                //         newPrimary
-                //     );
-                //     lock = false;
-                //     setTimeout(() => {
-                //         $html.removeClass("theme-filter");
-                //     }, 1);
-                // }, 300);
-
-                $container = $(".md-content");
-                $container.removeClass("theme-changed");
-                $container.css("opacity", 0);
-                setTimeout(() => {
-                    $container.addClass("theme-changed");
-                    $container.css("opacity", "");
-                }, 0);
-
-                $header = $(".md-header");
-                $headerBg = $(".md-header-bg");
-                $headerTabs = $(".md-tabs");
-                $sidebar = $(".md-sidebar");
-                $header.removeClass("theme-changed-fast");
-                $headerBg.removeClass("theme-changed-fast");
-                $headerTabs.removeClass("theme-changed-fast");
-                $sidebar.removeClass("theme-changed-fast");
-                $header.css("opacity", 0);
-                $headerBg.css("opacity", 0);
-                $headerTabs.css("opacity", 0);
-                $sidebar.css("opacity", 0);
-                setTimeout(() => {
-                    $header.addClass("theme-changed-fast");
-                    $headerBg.addClass("theme-changed-fast");
-                    $headerTabs.addClass("theme-changed-fast");
-                    $sidebar.addClass("theme-changed-fast");
-                    $header.css("opacity", "");
-                    $headerBg.css("opacity", "");
-                    $headerTabs.css("opacity", "");
-                    $sidebar.css("opacity", "");
-                }, 0);
-
-                lastScheme = newScheme;
-                lastPrimary = newPrimary;
+                handlePageAnim();
             }
         });
     });
@@ -99,4 +71,6 @@ document$.subscribe(function () {
         attributes: true,
         attributeFilter: ["data-md-color-scheme"],
     });
+
+    window.pageAnim = handlePageAnim;
 });

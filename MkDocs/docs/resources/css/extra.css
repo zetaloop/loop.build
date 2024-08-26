@@ -178,16 +178,6 @@ pre {
   --header-shadow-color: rgba(100, 100, 100, 0.2);
 }
 
-@keyframes header-bg-fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .md-header-bg-frame {
   /* 半透明背景的外框，应付布局器用的 */
   height: 0;
@@ -210,7 +200,6 @@ pre {
   border-bottom: 1px solid var(--header-border-color);
   border-radius: 10px;
   box-shadow: 0 .2rem .2rem var(--header-shadow-color);
-  animation: header-bg-fadein 0.3s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
 @media screen and (min-width: 76.25em)
@@ -307,7 +296,7 @@ pre {
   background-color: unset !important;
 }
 
-@keyframes theme-changed {
+@keyframes appear {
   from {
     opacity: 0;
   }
@@ -317,14 +306,49 @@ pre {
   }
 }
 
+@keyframes slidein {
+  from {
+    transform: translateY(-.3vw);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
 .theme-changed {
   opacity: 0;
-  animation: theme-changed 1s cubic-bezier(.4, 0, .2, 1) forwards;
+  animation: appear 1s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
 .theme-changed-fast {
   opacity: 0;
-  animation: theme-changed .3s forwards;
+  animation: appear .3s forwards;
+}
+
+.page-changed {
+  opacity: 0;
+  animation: appear .3s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+.header-init {
+  opacity: 0;
+  animation: appear .2s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+.header-page-init {
+  opacity: 0;
+  animation: appear .7s cubic-bezier(.4, 0, .2, 1) forwards, slidein .5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.header-bg-init {
+  opacity: 0;
+  animation: appear .5s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+.header-slidein {
+  transform: translateY(-.3vw);
+  animation: slidein .5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 .giscus-frame {
