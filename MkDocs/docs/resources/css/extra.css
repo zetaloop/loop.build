@@ -343,7 +343,7 @@ body {
   margin-left: 0 !important;
   overflow: hidden;
   width: 0;
-  transition: width .25s ease, margin .25s ease;
+  transition: width .25s cubic-bezier(0.215, 0.610, 0.355, 1), margin .25s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .md-nav__source {
