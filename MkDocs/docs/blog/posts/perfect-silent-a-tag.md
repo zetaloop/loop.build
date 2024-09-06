@@ -9,18 +9,18 @@ categories:
 
 # 一个完美的非跳转 a 标签
 
-有时候我们就是需要一个划上去有悬浮信息的 `<a>` 标签，但是又不能让他真的可以点击。<br>
-一种常见的做法是 `<a href="javascript:void(0);">`，这样会显示一个 `javascript:void(0);` 的链接，不好看。<br>
+有时候我们就是需要一个划上去有悬浮信息的 `<a>` 标签，但是又不能让他真的可以点击。
+一种常见的做法是 `<a href="javascript:void(0);">`，这样会显示一个 `javascript:void(0);` 的链接，不好看。
 还有一种做法是，`<a href="#">` + 阻止 `click` 事件默认行为，这样会在地址栏留下 `#`，也不好看。
 
 本文介绍一种不会在地址栏或链接栏留下任何痕迹的 `<a>` 标签写法。
 <!-- more -->
 ## 首先
-让我们在这儿放一个链接：<br>
+让我们在这儿放一个链接：
 [这是一个正常的链接 `<a href="https://github.com/zetaloop">`](https://github.com/zetaloop "点击跳转到 GitHub")
 
-但是，有时候我们只需要它有一个悬停提示，但是不需要真正可以跳转。对比以下常见方案：<br>
-[这是一个非跳转链接 `<a href="javascript:void(0);">`](javascript:void(0); "点了啥也不做，但是悬停会在左下角显示 <code>javascript:void(0);</code>，并且这个定制悬浮栏会卡住")<br>
+但是，有时候我们只需要它有一个悬停提示，但是不需要真正可以跳转。对比以下常见方案：
+[这是一个非跳转链接 `<a href="javascript:void(0);">`](javascript:void(0); "点了啥也不做，但是悬停会在左下角显示 <code>javascript:void(0);</code>，并且这个定制悬浮栏会卡住")
 [这是一个非跳转链接 `<a href="#">`](# "点了会在地址栏留下 <code>#</code>，并且页面会跳到顶部") (1)
 { .annotate }
 

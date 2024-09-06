@@ -5,33 +5,33 @@
 !!! tip ""
     :material-paw: **设定**
 
-    :   一只黑白搭绿的可爱福瑞小狐狸呀～<br>
+    :   一只黑白搭绿的可爱福瑞小狐狸呀～
         如果你对它的世界感兴趣的话 [:octicons-arrow-right-24: 查看设定](fursona.md)
 
 !!! abstract ""
     :material-console: **计算机**
 
-    :   目前还在本科学习中。<br>
-        喜欢用黑魔法小寄巧解决问题。(1)<br>
-        爱用的编程语言：<kbd>:material-language-python:Python</kbd>　<kbd>:material-language-javascript:JavaScript</kbd><br>
-        在做几个开源库和工具，也许很快就能见到。<br>
+    :   目前还在本科学习中。
+        喜欢用黑魔法小寄巧解决问题。(1)
+        爱用的编程语言：<kbd>:material-language-python:Python</kbd>　<kbd>:material-language-javascript:JavaScript</kbd>
+        在做几个开源库和工具，也许很快就能见到。
         { .annotate }
 
-        1.  比如这里的彩色框框，其实是一个 [总结注释框](symbols.md#注释框) 不写标题。<br>
+        1.  比如这里的彩色框框，其实是一个 [总结注释框](symbols.md#注释框) 不写标题。
             还有这个 <kbd>:material-language-python:Python</kbd>，它是用快捷键符号 &lt;kbd&gt; 做出来的。
 
 !!! example ""
     :material-book: **汉化**
 
-    :   也做了一些软件汉化。<br>
-        不照搬原文，会积极改写那些难懂的旧译法。<br>
-        有 PowerToys、GitHub Desktop、IDLE 等。<br>
+    :   也做了一些软件汉化。
+        不照搬原文，会积极改写那些难懂的旧译法。
+        有 PowerToys、GitHub Desktop、IDLE 等。
         可前往 GitHub 获取最新版本。
 
 !!! warning ""
     :material-cards: **技能**
 
-    :   会点修图、设计、剪辑。写文字全靠 GPT。也想学点编曲和绘画，方便实现很多想法。<br>
+    :   会点修图、设计、剪辑。写文字全靠 GPT。也想学点编曲和绘画，方便实现很多想法。
         会喵喵叫。
 
 !!! danger ""
@@ -42,10 +42,10 @@
 !!! quote ""
     :material-comment-text: **聊天**
 
-    :   聊天随意，我很开放，没什么禁忌。<br>
+    :   聊天随意，我很开放，没什么禁忌。
         如果遇到了技术问题，我很乐意帮忙解决。
 
-<p style="display: flex; gap: 20px; flex-wrap: wrap;" markdown>
+<p style="display: flex; gap: 20px; flex-wrap: wrap;" markdown nobr>
 [:simple-github: GitHub](https://github.com/zetaloop "github.com/zetaloop"){.md-button}
 [:simple-bilibili: Bilibili](https://space.bilibili.com/99583527 "zetaloop"){.md-button}
 [:simple-tencentqq: QQ](msg:QQ%3A%20zetaloop "QQ: zetaloop"){.md-button .msg}

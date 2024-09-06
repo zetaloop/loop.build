@@ -71,7 +71,7 @@ services:
 ```bash title=""
 docker compose up -d
 ```
-然后，我们查看 `~/apps/rustdesk/data` 目录里的 `id_ed25519.pub` 文件。<br>
+然后，我们查看 `~/apps/rustdesk/data` 目录里的 `id_ed25519.pub` 文件。
 里面的内容是我们的连接密钥，这个需要先记下来。
 ```bash title=""
 cat data/id_ed25519.pub  # 显示密钥
