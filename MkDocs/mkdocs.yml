@@ -220,6 +220,8 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - yafg:
+      stripTitle: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details

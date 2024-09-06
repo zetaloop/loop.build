@@ -15,7 +15,7 @@ python3 -m venv venv
 source venv/bin/activate
 python3 -m pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
-pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin
+pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin yafg
 pip install beautifulsoup4 lxml
 if [ -n "$MATERIAL_INSIDERS_GH_TOKEN" ]; then
   # pip install git+https://${MATERIAL_INSIDERS_GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
