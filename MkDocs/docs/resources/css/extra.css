@@ -538,4 +538,22 @@ div.mermaid {
     max-width: 85%;
   }
 }
+
+
+
+/* 摘要里的图片样式优化 */
+.md-post--excerpt img {
+  max-height: 200px;
+}
+
+.md-post--excerpt figure {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+
+
+/* 摘要里不显示分割线 */
+.md-post--excerpt hr {
+  display: none;
 }
