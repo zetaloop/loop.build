@@ -205,6 +205,7 @@ hooks:
   - overrides/hooks/shortcodes.py
 
 markdown_extensions:
+  - markdown.extensions.nl2br
   - abbr
   - admonition
   - attr_list
