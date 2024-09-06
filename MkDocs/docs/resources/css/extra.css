@@ -516,3 +516,26 @@ div.mermaid {
 .md-typeset .md-button {
   border-radius: .2rem;
 }
+
+
+
+/* 图片样式优化 */
+@media screen and (min-width: 76.25em) {
+  .md-typeset figure {
+    margin-left: inherit;
+    margin-right: inherit;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .md-typeset figure {
+    max-width: 70%;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .md-typeset figure {
+    max-width: 85%;
+  }
+}
+}
