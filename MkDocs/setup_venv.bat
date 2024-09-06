@@ -22,6 +22,7 @@ call venv\Scripts\activate.bat
 py -m pip install -U pip setuptools wheel
 pip install mkdocs-material[imaging] mkdocs-git-revision-date-localized-plugin
 pip install mkdocs-glightbox mkdocs-redirects mkdocs-minify-plugin
+pip install beautifulsoup4 lxml
 if not "%MATERIAL_INSIDERS_GH_TOKEN%" == "" (
   @REM pip install git+https://%MATERIAL_INSIDERS_GH_TOKEN%@github.com/squidfunk/mkdocs-material-insiders.git
   pip install git+https://%MATERIAL_INSIDERS_GH_TOKEN%@github.com/zetasp/mkdocs-material-insiders.git

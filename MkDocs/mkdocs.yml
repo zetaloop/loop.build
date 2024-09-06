@@ -203,6 +203,7 @@ plugins:
 
 hooks:
   - overrides/hooks/shortcodes.py
+  - overrides/hooks/nobr.py
 
 markdown_extensions:
   - markdown.extensions.nl2br
