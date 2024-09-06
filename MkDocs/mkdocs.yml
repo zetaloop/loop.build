@@ -206,7 +206,7 @@ hooks:
   - overrides/hooks/nobr.py
 
 markdown_extensions:
-  - markdown.extensions.nl2br
+  - nl2br
   - abbr
   - admonition
   - attr_list
