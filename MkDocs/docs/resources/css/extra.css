@@ -509,3 +509,10 @@ div.mermaid {
 .md-author {
   border-radius: 0 !important;
 }
+
+
+
+/* 按钮圆角 */
+.md-typeset .md-button {
+  border-radius: .2rem;
+}
