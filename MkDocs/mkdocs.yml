@@ -96,6 +96,7 @@ nav:
   - 动态: space/index.md
   - 关于:
       - about/index.md
+      - 设定: about/fursona.md
       - 赞助: about/sponsor.md
       - 附录: about/symbols.md
 
