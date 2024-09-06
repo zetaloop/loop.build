@@ -1,14 +1,11 @@
 from bs4 import BeautifulSoup
 from mkdocs.config.defaults import MkDocsConfig
-from mkdocs.structure.files import Files
 from mkdocs.structure.pages import Page
 
 
 # Hook mkdocs `on_page_content`
-def on_page_content(
-    html: str, *, page: Page, config: MkDocsConfig, files: Files
-) -> str | None:
-    soup = BeautifulSoup(html, "lxml")
+def on_post_page(output: str, *, page: Page, config: MkDocsConfig) -> str | None:
+    soup = BeautifulSoup(output, "lxml")
 
     # For elements with nobr attribute, remove <br> tags
     for element in soup.find_all(attrs={"nobr": True}):
