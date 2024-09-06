@@ -167,6 +167,18 @@ def _badge_for_moved(
     return _badge(icon=f"[:{icon}:]({href})", text=text)
 
 
+def _badge_for_closed(
+    text: str,
+    page: Page,
+    files: Files,
+    href: str | None = None,
+):
+    icon = "material-close"
+    link = "about/symbols.md#closed"
+    href = href or _resolve_path(link, page, files) + " '已停止'"
+    return _badge(icon=f"[:{icon}:]({href})", text=text)
+
+
 def _badge_for_autoupdate(
     text: str,
     page: Page,
