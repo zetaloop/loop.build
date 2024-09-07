@@ -3,7 +3,7 @@ from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.pages import Page
 
 
-# Hook mkdocs `on_page_content`
+# Hook mkdocs `on_post_page`
 def on_post_page(output: str, *, page: Page, config: MkDocsConfig) -> str | None:
     soup = BeautifulSoup(output, "lxml")
 
