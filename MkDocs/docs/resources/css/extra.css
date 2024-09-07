@@ -539,6 +539,11 @@ div.mermaid {
   }
 }
 
+.md-typeset figcaption {
+  font-style: normal;
+  color: var(--md-typeset-color);
+}
+
 
 
 /* 摘要里的图片样式优化 */
