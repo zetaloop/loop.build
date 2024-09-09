@@ -57,10 +57,23 @@ def on_page_markdown(markdown: str, *, page: Page, config: MkDocsConfig, files: 
         else:
             raise RuntimeError(f"Invalid number of groups: {len(groups)}")
 
+    def replace_blank(match: Match):
+        content = match.group(1)
+        if not content:
+            margin = "1em"
+        else:
+            margin = content.strip()
+            if margin.isdigit():
+                margin = f"{margin}em"
+        return f'<span style="margin: {margin};"></span>'
+
     # Find and replace all external asset URLs in current page
     markdown = re.sub(r"<!-- md:(\w+)(.*?) -->", replace, markdown, flags=re.I | re.M)
     markdown = re.sub(
         r"<!-- \[md:(\w+)\]\((.*?)\)(.*?) -->", replace, markdown, flags=re.I | re.M
+    )
+    markdown = re.sub(
+        r"<!-- blank(?:\s+(.*?))? -->", replace_blank, markdown, flags=re.I | re.M
     )
     return markdown
 

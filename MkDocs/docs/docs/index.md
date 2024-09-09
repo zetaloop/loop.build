@@ -13,9 +13,7 @@
 
     安装原版之后再安装汉化包
 
-    [:octicons-download-24: 原版 :fontawesome-brands-github:](https://github.com/Microsoft/PowerToys/releases "GitHub Releases")
-    <span style="margin-right: 20px;"></span>
-    [:octicons-download-24: 汉化包 :fontawesome-brands-github:](https://github.com/Zetaloop/PowerToys-CN/releases "GitHub Releases") | [:fontawesome-solid-cloud:](https://zeta.lanzouq.com/b0ny180uh "蓝奏云 密码zeta")
+    [:octicons-download-24: 原版 :fontawesome-brands-github:](https://github.com/Microsoft/PowerToys/releases "GitHub Releases")<!-- blank -->[:octicons-download-24: 汉化包 :fontawesome-brands-github:](https://github.com/Zetaloop/PowerToys-CN/releases "GitHub Releases") | [:fontawesome-solid-cloud:](https://zeta.lanzouq.com/b0ny180uh "蓝奏云 密码zeta")
 
 -   **:material-puzzle-outline: ExplorerPatcher** <!-- [md:autoupdate]('自动更新') --> <!-- [md:moved](https://github.com/valinet/ExplorerPatcher-l10n "汉化版不再更新，现在在维护原版的中文翻译") 转移到原版中文 -->
 
