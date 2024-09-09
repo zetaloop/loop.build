@@ -1,6 +1,9 @@
 // Hook theme change event, fix the mess.
 
 document$.subscribe(function () {
+    if (window.pageObserver) {
+        window.pageObserver.disconnect();
+    }
     var lastScheme = document.body.getAttribute("data-md-color-scheme");
     var lastPrimary = document.body.getAttribute("data-md-color-primary");
 
@@ -65,11 +68,11 @@ document$.subscribe(function () {
             }
         });
     });
-
     observer.observe(document.body, {
         attributes: true,
         attributeFilter: ["data-md-color-scheme"],
     });
 
+    window.pageObserver = observer;
     window.pageAnim = handlePageAnim;
 });
