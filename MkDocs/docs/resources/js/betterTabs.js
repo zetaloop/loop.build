@@ -24,7 +24,7 @@ document$.subscribe(() => {
             $navHeader.before(
                 $(
                     '<div class="md-header-bg-frame">' +
-                        '<div class="md-header-bg theme-changed-fast"></div>' +
+                        '<div class="md-header-bg" style="opacity: 0;"></div>' +
                         "</div>"
                 )
             );
