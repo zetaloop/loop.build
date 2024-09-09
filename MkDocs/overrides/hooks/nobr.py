@@ -5,7 +5,7 @@ from mkdocs.structure.pages import Page
 
 # Hook mkdocs `on_post_page`
 def on_post_page(output: str, *, page: Page, config: MkDocsConfig) -> str | None:
-    soup = BeautifulSoup(output, "lxml")
+    soup = BeautifulSoup(output, "html5lib")
 
     # For elements with nobr attribute, remove <br> tags
     for element in soup.find_all(attrs={"nobr": True}):
