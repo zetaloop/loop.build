@@ -52,7 +52,7 @@ document$.subscribe(function () {
                 anim($sidebar, "theme-changed-fast");
                 anim($header, "theme-changed-fast");
                 anim($headerTabs, "theme-changed-fast");
-                anim($headerBg, "theme-changed-fast");
+                anim($headerBg, "theme-changed");
                 break;
 
             case "page":
