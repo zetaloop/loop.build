@@ -30,6 +30,27 @@
 <!-- Footer -->
 {% block footer %} {{ super() }}
 <script>
+  // Initialize ellipsis animation
+  if (typeof window.md_ellipsis === "undefined") {
+    const $ellipsis = $(".md-header .md-ellipsis").first();
+    const text = "...";
+    let index = 0;
+    window.md_ellipsis = $ellipsis.text();
+
+    const interval = setInterval(() => {
+      $ellipsis.text(text.substring(0, index));
+      index = (index + 1) % (text.length + 1);
+    }, 100);
+
+    window.addEventListener("load", () => {
+      clearInterval(interval);
+      $ellipsis.text(window.md_ellipsis);
+      delete window.md_ellipsis;
+    });
+  }
+</script>
+<script>
+  // Timeago plugin
   $(document).ready(function () {
     $("body").timeago();
     document$.subscribe(function () {
