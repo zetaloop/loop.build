@@ -26,7 +26,7 @@ document$.subscribe(function () {
         lastScheme = newScheme;
         lastPrimary = newPrimary;
 
-        $container = $(".md-content");
+        $container = $(".md-content__inner");
         $header = $(".md-header");
         $headerBg = $(".md-header-bg");
         $headerBgFrame = $(".md-header-bg-frame");
