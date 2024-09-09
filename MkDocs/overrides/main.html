@@ -36,22 +36,29 @@
     const $ellipsis = $(".md-header .md-ellipsis").first();
     window.md_ellipsis = $ellipsis.text();
 
-    const text = window.md_ellipsis.replace(" ", "");
+    var text = window.md_ellipsis.replace(" ", "");
     $ellipsis.text("");
     var index = 1 % (text.length + 1);
-    const interval = setInterval(() => {
+    var time = 0;
+    const timelimit = 2374;
+    var interval = setInterval(() => {
       $ellipsis.text(text.substring(0, index));
       index = (index + 1) % (text.length + 1);
+      time += 100;
+      if (time >= timelimit) {
+        clearInterval(interval);
+        $ellipsis.text(text + "（加载速度不太对，检查一下网络吧）");
+        index = 1;
+        interval = setInterval(() => {
+          if (index) {
+            $ellipsis.text(text);
+          } else {
+            $ellipsis.text(text + "（加载速度不太对，检查一下网络吧）");
+          }
+          index = !index;
+        }, 1000);
+      }
     }, 100);
-    // const stages = ["-", "\\", "|", "/"];
-    // let index = 0;
-    // const interval = setInterval(() => {
-    //   if (index >= stages.length) {
-    //     index = 0;
-    //   }
-    //   $ellipsis.text(stages[index]);
-    //   index++;
-    // }, 100);
 
     window.addEventListener("load", () => {
       clearInterval(interval);
