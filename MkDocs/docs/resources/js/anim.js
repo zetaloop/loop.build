@@ -29,7 +29,7 @@ document$.subscribe(function () {
         $container = $(".md-content__inner");
         $header = $(".md-header");
         $headerMore = $(
-            ".md-header__inner > *:not(.md-header__title):not(.md-logo)"
+            '.md-header__inner > *:not(.md-header__title):not(.md-logo):not(.md-header__button[for="__drawer"]'
         );
         $headerBg = $(".md-header-bg");
         $headerBgFrame = $(".md-header-bg-frame");
