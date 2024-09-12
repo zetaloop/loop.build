@@ -47,15 +47,17 @@
       time += 100;
       if (time >= timelimit) {
         clearInterval(interval);
-        $ellipsis.text(text + "（加载速度不太对，检查一下网络吧）");
+        $ellipsis.text(text + "（加载太慢）");
         index = 1;
         interval = setInterval(() => {
-          if (index) {
+          if (index % 2) {
             $ellipsis.text(text);
+          } else if (index == 2) {
+            $ellipsis.text(text + "（请检查网络）");
           } else {
-            $ellipsis.text(text + "（加载速度不太对，检查一下网络吧）");
+            $ellipsis.text(text + "（加载太慢）");
           }
-          index = !index;
+          index = (index + 1) % 4;
         }, 1000);
       }
     }, 100);
