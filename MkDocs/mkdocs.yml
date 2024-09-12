@@ -133,6 +133,7 @@ extra_javascript:
   - resources/js/betterTabs.min.js
   - resources/js/betterLinks.min.js
   - resources/js/repoInfoBar.min.js
+  - resources/js/giscusLoader.min.js
   # - resources/js/_feedback.min.js
   - resources/js/_timeago.min.js
   - resources/js/_mathjax.min.js
