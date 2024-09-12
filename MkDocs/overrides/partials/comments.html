@@ -30,25 +30,32 @@
 
   var lastTheme;
   $(window).on("load", function () {
-    var palette = __md_get("__palette");
-    var initialTheme =
-      palette && palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light";
-    lastTheme = initialTheme;
-    loadGiscus(initialTheme);
-
-    var ref = document.querySelector("[data-md-component=palette]");
-    ref.addEventListener("change", function () {
+    document$.subscribe(function () {
       var palette = __md_get("__palette");
-      var newTheme =
+      var initialTheme =
         palette && palette.color.scheme === "slate"
           ? "transparent_dark"
           : "light";
-      if (lastTheme !== newTheme) {
-        lastTheme = newTheme;
-        loadGiscus(newTheme);
+      lastTheme = initialTheme;
+      loadGiscus(initialTheme);
+
+      if (window.__md_giscus_event_listener) {
+        // prevent multiple event listeners
+        return;
       }
+      var ref = document.querySelector("[data-md-component=palette]");
+      ref.addEventListener("change", function () {
+        var palette = __md_get("__palette");
+        var newTheme =
+          palette && palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light";
+        if (lastTheme !== newTheme) {
+          lastTheme = newTheme;
+          loadGiscus(newTheme);
+        }
+      });
+      window.__md_giscus_event_listener = true;
     });
   });
 </script>
