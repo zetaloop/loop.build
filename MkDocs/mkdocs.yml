@@ -217,7 +217,7 @@ markdown_extensions:
       force_convert: false
       empty_as_none: false
   - md_in_html
-  - nl2br
+  - smartbreaks
   - tables
   - toc:
       permalink: true # 书签锚点
