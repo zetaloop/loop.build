@@ -28,21 +28,19 @@ document$.subscribe(function () {
 
         $container = $(".md-content__inner");
         $header = $(".md-header");
+        $headerMore = $(
+            ".md-header__inner > *:not(.md-header__title):not(.md-logo)"
+        );
         $headerBg = $(".md-header-bg");
         $headerBgFrame = $(".md-header-bg-frame");
         $headerTabs = $(".md-tabs");
         $sidebar = $(".md-sidebar");
         switch (mode) {
             case "init":
-                anim(
-                    $(
-                        ".md-header__inner > *:not(.md-header__title):not(.md-logo)"
-                    ),
-                    "header-slidein"
-                );
-                anim($headerTabs, "header-slidein");
+                anim($headerMore, "header-fade-slidein-slow");
+                anim($headerTabs, "header-slidein-slow");
                 anim($sidebar, "header-slidein");
-                anim($container, "header-page-init");
+                anim($container, "page-init");
                 anim($headerBg, "header-bg-init");
                 anim($headerBgFrame, "header-slidein");
                 break;

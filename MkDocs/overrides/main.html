@@ -7,7 +7,8 @@
   if (!window.pageLoaded) {
     var style = document.createElement("style");
     style.innerHTML =
-      ".md-main, .md-tabs, .md-header__inner > *:not(.md-header__title):not(.md-logo) { opacity: 0; }\n" +
+      ".md-main, .md-tabs { opacity: 0; }\n" +
+      ".md-header__inner > *:not(.md-header__title):not(.md-logo) { display: none; }\n" +
       ".md-header__title, .md-logo { opacity: .2; }\n" +
       ".md-header-bg-frame { transform: translateY(-.3vw); }";
     document.head.appendChild(style);

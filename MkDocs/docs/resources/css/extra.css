@@ -332,13 +332,9 @@ pre {
   animation: appear .3s cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
-.header-init {
+.page-init {
   opacity: 0;
-  animation: appear .2s cubic-bezier(.4, 0, .2, 1) forwards;
-}
-
-.header-page-init {
-  opacity: 0;
+  transform: translateY(-.3vw);
   animation: appear .7s cubic-bezier(.4, 0, .2, 1) forwards, slidein .5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
@@ -350,6 +346,17 @@ pre {
 .header-slidein {
   transform: translateY(-.3vw);
   animation: slidein .5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.header-slidein-slow {
+  transform: translateY(-.3vw);
+  animation: slidein .8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.header-fade-slidein-slow {
+  opacity: 0;
+  transform: translateY(-.3vw);
+  animation: appear .5s cubic-bezier(.4, 0, .2, 1) forwards, slidein .8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 .giscus-frame {
