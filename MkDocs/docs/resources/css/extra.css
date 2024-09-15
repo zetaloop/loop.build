@@ -570,3 +570,10 @@ div.mermaid {
 .md-post--excerpt hr {
   display: none;
 }
+
+
+
+/* 对齐<code>，默认对齐基线会偏下 */
+.md-typeset code {
+  vertical-align: text-top;
+}
