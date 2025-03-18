@@ -1,27 +1,22 @@
 /* 自定义字体 */
 @font-face {
-  font-family: "仓耳渔阳体";
-  src: url("../font/站酷仓耳渔阳体-W02.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrainsMono";
-  src: url("../font/JetBrainsMono-Medium.woff2") format("woff2");
+  font-family: "霞鹜文楷";
+  src: url("../font/LXGWWenKai-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "MapleMono";
-  src: url("../font/MapleMono-Light.woff2") format("woff2");
+  src: url("../font/MapleMonoNormal-Light.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "MapleMonoCN";
-  src: url("../font/MapleMono-NF-CN-Light.woff2") format("woff2");
+  src: url("../font/MapleMonoNormal-NF-CN-Light.woff2") format("woff2");
 }
 
 :root {
-  --md-text-font: "仓耳渔阳体";
-  --md-code-font: "JetBrainsMono", "MapleMonoCN";
+  --md-text-font: "霞鹜文楷";
+  --md-code-font: "MapleMonoCN";
 }
 
 
